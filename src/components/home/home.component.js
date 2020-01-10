@@ -6,7 +6,7 @@ function Home() {
             <div className="row m-t-150">
                 <div className="col-lg-8">
                     <h5 className="text-red">At a glance</h5>
-                    <div className>
+                    <div>
                         <div className="row">
                             <div className="col-lg-3 p-r-0">
                                 <div className="border ">
@@ -46,11 +46,11 @@ function Home() {
                                 className="fa fa-pencil-square-o float-right fa-2x top text-red m-r-10"
                                 aria-hidden="true"
                             />
-                            <div className>
+                            <div>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="border" style={{ padding: 20 }}>
-                                            <div className>
+                                            <div>
                                                 Check product fiche for Top-Hat Plan
                 <i className="fa fa-check fa-lg" />
                                                 <i className="fa fa-trash fa-lg" />
@@ -84,7 +84,7 @@ function Home() {
                     >
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <div className>
+                                <div>
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="border box">
@@ -112,7 +112,7 @@ function Home() {
                                 </div>
                             </div>
                             <div className="carousel-item">
-                                <div className>
+                                <div>
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="border box">
@@ -140,7 +140,7 @@ function Home() {
                                 </div>
                             </div>
                             <div className="carousel-item">
-                                <div className>
+                                <div>
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="border box">

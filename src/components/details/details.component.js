@@ -27,13 +27,13 @@ function Details() {
                         />
                         <div className="dropdown-menu" aria-labelledby="dropdownMenu">
                             <span className="dropdown-item-text">Offers</span>
-                            <Link className="dropdown-item" href="#">
+                            <Link className="dropdown-item" to="/profile/c">
                                 Contracts
               </Link>
-                            <Link className="dropdown-item" href="#">
+                            <Link className="dropdown-item" to="/profile/p">
                                 Proposals
               </Link>
-                            <Link className="dropdown-item" href="#">
+                            <Link className="dropdown-item" to="/profile/d">
                                 Documents
               </Link>
                         </div>

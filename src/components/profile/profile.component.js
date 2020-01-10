@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Link, Switch, Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Details from '../details/details.component';
 
 function Profile() {
@@ -72,7 +72,7 @@ function Profile() {
             <div className="row m-t-100">
                 <div className="col-lg-1" />
                 <div className="col-lg-11">
-                <Route path="/profile/details">
+                <Route exact path="/profile/details">
                     <Details></Details>
                 </Route> 
                 <Route path="/profile/simulation">
