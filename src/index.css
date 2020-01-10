@@ -437,3 +437,6 @@ max-width: 98%;
       .carousel-control-prev-icon, .carousel-control-next-icon {
         color: #000 !important;
       }
+.offer-card{
+  margin-left:1%;
+}

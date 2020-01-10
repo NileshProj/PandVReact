@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import Details from '../details/details.component';
+import Simulation from '../simulation/simulation';
+import Offers from '../offer/offer';
 
 function Profile() {
     return (
@@ -52,11 +54,11 @@ function Profile() {
             </a>
                             </li>
                             <li className="nav-item list-group-item bg-brown">
-                                <a className="nav-link" href="offers-proposals.html">
+                                <Link className="nav-link" to="/profile/Offers">
                                     <span data-feather="file" />
                                     <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
                                     Offers &amp; Proposals
-            </a>
+            </Link>
                             </li>
                             <li className="nav-item list-group-item bg-brown">
                                 <a className="nav-link" href="documents.html">
@@ -76,8 +78,11 @@ function Profile() {
                     <Details></Details>
                 </Route> 
                 <Route path="/profile/simulation">
-                    simulation
+                    <Simulation/>
                 </Route>    
+                <Route path="/profile/Offers">
+                    <Offers/>
+                </Route>   
                 </div>
             </div>
             
