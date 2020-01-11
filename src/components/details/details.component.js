@@ -171,7 +171,7 @@ class Details extends React.Component {
                                             <div className="card-body m-t-50">
                                                 <h5 className="card-title">{this.state.data[id].name}</h5>
                                                 <p className="card-text">
-                                                {this.state.data[id].address1} <br></br>{this.state.data[id].address2}
+                                                {this.state.data[id].address} <br></br>{this.state.data[id].address1}
                                                 </p>
                                                 <i className={"fa fa-star-o fa-2x top m-t-50 m-r-50 text-red "+(this.state.stared ? 'hide': '')}
                                                  onClick={this.starProfile} />

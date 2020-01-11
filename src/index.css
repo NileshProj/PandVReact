@@ -518,8 +518,32 @@ max-width: 98%;
   color: grey;
 }
 .simulation-second-column{
-  background-color:#E9E3E2;
+  background-color:#F7F3F2;
 }
 .save-btn{
   background-color: black;
+}
+.range-slider{
+  height:30%;
+
+}
+.info-icon-fiscal-first {
+  font-size: 37px;
+  margin-top:-45px;
+  margin-left: 64px;
+}
+.info-icon-fiscal-second {
+  font-size: 37px;
+  margin-top:-45px;
+  margin-left: 85px;
+}
+.input-range-slider{
+  margin-top: 21%;
+  width:94%;
+}
+.fiscal-values{
+  font-size: large;
+}
+.ipt-margin{
+  margin-left: 18%;
 }

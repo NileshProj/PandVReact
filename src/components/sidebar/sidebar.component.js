@@ -18,7 +18,7 @@ class SideBar extends React.Component {
                         <div className="sidebar-sticky ">
                             <ul className="nav flex-column list-group  list-group-flush">
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 1 ? 'active' : '')}>
-                                    <Link className={"nav-link " + (this.state.active === 1 ? 'active' : '')} onClick={() => this.setState({ active: 1 })} to="/profile/details">
+                                    <Link className={"nav-link " + (this.state.active === 1 ? 'active' : '')} onClick={() => this.setState({ active: 1 })} to="/profile/details/0">
                                         <span data-feather="home" />
                                         <i className="fa fa-user-circle fa-lg m-r-10"
                                             aria-hidden="true" />
