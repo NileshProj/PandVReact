@@ -445,12 +445,12 @@ max-width: 98%;
 }
 .info-icon-firstrow {
   font-size: 37px;
-  margin-top: -15%;
+  margin-top: -14%;
   margin-left: 105%;
 }
 .info-icon-secondrow {
   font-size: 37px;
-  margin-top: -15%;
+  margin-top: -14%;
   margin-left: 105%;
 }
 .capi-card{
@@ -493,7 +493,7 @@ max-width: 98%;
   margin-bottom: 5%;
 }
 .full-width-row{
-    width: 114%;
+    width: 113%;
     height: 50px;
     padding: 10px;
     margin-left:-7%;
@@ -519,4 +519,7 @@ max-width: 98%;
 }
 .simulation-second-column{
   background-color:#E9E3E2;
+}
+.save-btn{
+  background-color: black;
 }
