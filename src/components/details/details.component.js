@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 class Details extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { stared: false, edit: false, user: {}, temp:{}};
+        this.state = { stared: false, edit: false, user: {}, data:[], temp:{}, id: 0 };
         this.starProfile = this.starProfile.bind(this);
         this.unstarProfile = this.unstarProfile.bind(this);
         this.enableEdit = this.enableEdit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.save = this.save.bind(this);
-
         this.state.user = {
             name: 'Charl Robert',
             address: '',
@@ -25,8 +24,69 @@ class Details extends React.Component {
                 email: 'seb.rob@hotmail.com'
             }
         }
+        this.state.data = [
+            {
+              name: 'Charl Robert',
+              dob: '22/03/1957',
+              address: 'Boulevard De Wilde 81',
+              address1: '1440 Péruwelz',
+              imageurl: '/images/user1.png'
+            },
+            {
+              name: 'Tim Charles',
+              dob: '22/03/1957',
+              address: 'Boulevard De Wilde 81',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'Charleen Jones',
+              dob: '15/09/1965',
+              address: 'Chemin Roels 4',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'Charlene Yi',
+              dob: '15/09/1965',
+              address: 'Avenue Gielen 9',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'James Charlton',
+              dob: '15/09/1965',
+              address: 'Avenue Gielen 9',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'Charly Luyten',
+              dob: '15/09/1965',
+              address: 'Avenue Gielen 9',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'Charly Smith',
+              dob: '15/09/1965',
+              address: 'Avenue Gielen 9',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'Charl Robert',
+              dob: '15/09/1965',
+              address: 'Avenue Gielen 9',
+              address1: '1440 Péruwelz'
+            },
+            {
+              name: 'Charl Schmitz',
+              dob: '15/09/1965',
+              address: 'Avenue Gielen 9',
+              address1: '1440 Péruwelz'
+            },
+          ];
+        
     }
 
+    componentDidMount() {
+        
+    }
     starProfile() {
         this.setState({stared : true});
     }
@@ -48,7 +108,8 @@ class Details extends React.Component {
         this.setState({user: this.state.temp, edit :false, temp: {}});
     }
 
-    render() {
+    render(match) {
+        console.log(match);
         return (
             <div>
                 <nav>
@@ -108,7 +169,7 @@ class Details extends React.Component {
                                         </div>
                                         <div className="col-lg-8">
                                             <div className="card-body m-t-50">
-                                                <h5 className="card-title">Charl Robert</h5>
+                                                <h5 className="card-title">{this.state.data[this.state.id].name}</h5>
                                                 <p className="card-text">
                                                     Place De Smet 990 <br></br>7588 Lessines
                                                 </p>
@@ -243,7 +304,7 @@ class Details extends React.Component {
                                     <div>
                                         <br />
                                         <div className="border m-l-10 m-r-10">
-                                        12/12/2018 (Outgoing - SMS) Proficiat met verjaardag
+                                        Proficiat met verjaardag 12/12/2018 (Outgoing - SMS)
                       </div>
                                         <div className="border m-l-10 m-t-10 m-r-10">
                                         10/10/2018 (Brief) VAPZ and IPT Policy

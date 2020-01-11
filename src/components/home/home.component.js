@@ -92,7 +92,7 @@ class Home extends React.Component {
                             <div className="m-t-20">
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="border" style={{ padding: 20, height: 250, overflow: 'auto' }}>
+                                        <div className="border" style={{ padding: 20, height: 222, overflow: 'auto' }}>
                                             <div className={"box "+(this.state.newNote ? '': 'hide')}>
                                                     <div className="row">
                                                         <input type="text" className="form-control col-lg-6" onChange={(e)=>this.updateNote(e)} placeholder="New Note.."></input>
@@ -103,11 +103,18 @@ class Home extends React.Component {
                                             <div className={this.state.newNote ? 'hide': ''}>
                                             {this.state.notes.map((note, index)=>{
                                                 return (
-                                                <div className="m-t-10" key={index}>{note.title} 
-                                                    <i className="fa fa-check fa-lg" />
-                                                    <i className="fa fa-trash fa-lg" onClick={()=>this.deleteNote(index)}/>
+                                                <div className="row"  key={index}>    
+                                                    <div className="col-lg-10" >
+                                                        <div style={{fontSize: '18px', margin: '5px 10px 10px 10px'}}>{note.title}</div> 
+                                                    </div>
+                                                    <div className="col-lg-2">
+                                                        <div style={{margin: '12px 10px 10px 10px'}}>
+                                                            <i className={"fa fa-check fa-lg m-r-10 "+(index !== 2 ? 'hide': '')} />
+                                                            <i className="fa fa-trash fa-lg float-right" onClick={()=>this.deleteNote(index)}/>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                )    
+                                                )
                                             })}
                                            </div> 
                                         </div>
