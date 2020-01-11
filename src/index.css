@@ -440,3 +440,83 @@ max-width: 98%;
 .offer-card{
   margin-left:1%;
 }
+.offer-nav{
+  margin-left: 1%;
+}
+.info-icon-firstrow {
+  font-size: 37px;
+  margin-top: -15%;
+  margin-left: 105%;
+}
+.info-icon-secondrow {
+  font-size: 37px;
+  margin-top: -15%;
+  margin-left: 105%;
+}
+.capi-card{
+  margin-top:15px;
+}
+.policyholder{
+  margin-top: 7%;
+}
+.policyholder-value{
+  margin-top:7%;
+  margin-left: -65%;
+}
+.policyholder-row{
+  margin-top: -6%;
+}
+.capi-details{
+  margin-top:16%;
+}
+.paymentDetail{
+  padding-right: 2%;
+  margin-top:-2%;
+
+}
+.row-payment{
+  margin-top: -2%;
+}
+.secondrow-payment{
+  margin-top: -2%;
+}
+.offer-detail-card-heading{
+  font-weight: bold;
+  font-size: large;
+  margin-left: 10%;
+  margin-bottom: -4%;
+}
+.card-content-ul{
+  margin-left: 1%;
+}
+.card-content-li{
+  margin-bottom: 5%;
+}
+.full-width-row{
+    width: 114%;
+    height: 50px;
+    padding: 10px;
+    margin-left:-7%;
+    margin-bottom: -7%;
+}
+.full-width-confirm{
+  width: 30%;
+  height: 50px;
+  padding: 10px;
+  margin-left:0%;
+  margin-bottom: -3%;
+}
+.offer-second-row{
+  margin-top:8%;
+}
+.info-icon-simulation {
+  font-size: 37px;
+  margin-top: 19%;
+  margin-left: -5%;
+}
+.label-color {
+  color: grey;
+}
+.simulation-second-column{
+  background-color:#E9E3E2;
+}
