@@ -10,6 +10,13 @@ class Header extends React.Component {
     this.search = this.search.bind(this);
     this.state.data = [
       {
+        name: 'Charl Robert (177012)',
+        dob: '22/03/1957',
+        address: 'Boulevard De Wilde 81',
+        address1: '1440 Péruwelz',
+        imageurl: '/images/user1.png'
+      },
+      {
         name: 'Tim Charles (177013)',
         dob: '22/03/1957',
         address: 'Boulevard De Wilde 81',
@@ -90,7 +97,7 @@ class Header extends React.Component {
                 <Link className="nav-link white capital" to="/" onClick={() => this.setActive(1)}>Portfolio</Link>
               </li>
               <li className={"nav-item " + (this.state.active === 2 ? 'active' : '')}>
-                <Link className="nav-link white capital" to="/profile/details" onClick={() => this.setActive(2)}>Customers</Link>
+                <Link className="nav-link white capital" to="/profile/details/0" onClick={() => this.setActive(2)}>Customers</Link>
               </li>
             </ul>
             <form className="form-inline mt-2 mt-md-0">
@@ -118,32 +125,32 @@ class Header extends React.Component {
           <i className="fa fa-close fa-lg float-right m-r-10 m-t-10" onClick={()=>this.setState({filterData:[]})}></i>
           <div className="container">
             <div className="row">
-            {this.state.filterData? this.state.filterData.map(item=>{
+            {this.state.filterData? this.state.filterData.map((item, index)=>{
               return (
                 <div className="col-lg-4">
               <div className="row no-gutters">
                 <div className="col-md-4">
                   <img
-                    src="/images/user1.png"
+                    src={ item.imageurl ? item.imageurl : '/images/user.png'}
                     height={70}
                     width={70}
                     className="profile-pic"
                     alt="Name"
                   />
                 </div>
-                <div className="col-md-8 m-t-20">
+                <div className="col-md-7 m-t-20 m-l-10">
                   <div>
-                    <a style={{ color: "#000" }} href="customer-details.html">
-                    <strong>{item.name}</strong>
-                    </a>
+                    <Link style={{ color: "#000" }} onClick={()=>{this.setState({filterData:[]});this.setActive(2)}} to={"/profile/details/"+index}>
+                      <strong>{item.name}</strong>
+                    </Link>
                     <br />
-                    <small>
+                    <div style={{fontSize: '11px'}}>
                       <span>{item.dob}</span>
                       <br />
                       <span>{item.address}</span>
                       <br />
                       <span>{item.address1}</span>
-                    </small>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -64,7 +64,7 @@ class NeedAnalysis extends React.Component {
                                                                 <input
                                                                     type="text"
                                                                     className="form-control "
-                                                                    defaultValue={50.0}
+                                                                    defaultValue={'50,000'}
                                                                     id="one"
                                                                 />
                                                             </div>
@@ -80,7 +80,7 @@ class NeedAnalysis extends React.Component {
                                                                 <input
                                                                     type="text"
                                                                     className="form-control "
-                                                                    defaultValue={200.0}
+                                                                    defaultValue={'200,000'}
                                                                     id="two"
                                                                 />
                                                             </div>

@@ -9,22 +9,29 @@ import Home from './components/home/home.component';
 import Header from './components/header/header.component';
 import Profile from './components/profile/profile.component';
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/profile">
-            <Profile></Profile>
-          </Route>
-        </Switch>
-        </div>
-    </Router>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <Router>
+        <div>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/profile">
+              <Profile></Profile>
+            </Route>
+          </Switch>
+          </div>
+      </Router>
+    );
+  }
+  
 }
 
 export default App;
