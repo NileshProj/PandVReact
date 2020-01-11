@@ -79,7 +79,7 @@ class Header extends React.Component {
     return (
       <header>
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-maroon p-3">
-          <img src="images/pnv logo.jpg" height={50} alt="" />
+          <img src="/images/pnv logo.jpg" height={50} alt="" />
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
             aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
@@ -124,7 +124,7 @@ class Header extends React.Component {
               <div className="row no-gutters">
                 <div className="col-md-4">
                   <img
-                    src="images/user1.png"
+                    src="/images/user1.png"
                     height={70}
                     width={70}
                     className="profile-pic"

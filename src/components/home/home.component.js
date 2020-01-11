@@ -46,7 +46,7 @@ class Home extends React.Component {
     
     render(){
     return (
-        <div>
+        <div className="container">
             <div className="row m-t-130">
                 <div className="col-lg-8">
                     <h5 className="text-red">At a glance</h5>

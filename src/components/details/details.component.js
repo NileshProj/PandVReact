@@ -154,7 +154,7 @@ class Details extends React.Component {
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
                                                             <i className="fa fa-envelope-o m-r-5"
                                                                 aria-hidden="true"
-                                                            />{this.state.user.contact1.email}
+                                                            />{this.state.user.contact1.email ? this.state.user.contact1.email : 'not found'}
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact1.email}
@@ -202,7 +202,7 @@ class Details extends React.Component {
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
                                                             <i className="fa fa-envelope-o m-r-5"
                                                                 aria-hidden="true"
-                                                            />{this.state.user.contact2.email}
+                                                            />{this.state.user.contact2.email ? this.state.user.contact2.email : 'not found'}
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact2.email}
