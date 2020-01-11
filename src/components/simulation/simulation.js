@@ -117,11 +117,32 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-9 p-r-0">
                                 <div className="form-group">
-                                  <label class="label-color" htmlFor="one">Carrer Start Date</label>
+                                  <label class="label-color" htmlFor="one">Estimated Legal Pension</label>
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue="1/05/2017"
+                                    defaultValue="42,400"
+                                    id="one"
+                                  />
+                                </div>
+                              </div>
+                              {/* <div className="col-lg-3">
+                              <i className="fa fa-info-circle fa-2x m-t-30" />
+                            </div> */}
+                              <div className="col-lg-3">
+                                <div className="input-group-append">
+                                  <span className="info-icon-simulation">ⓘ</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col-lg-9 p-r-0">
+                                <div className="form-group">
+                                  <label class="label-color" htmlFor="one">Pension age</label>
+                                  <input
+                                    type="number"
+                                    className="form-control "
+                                    defaultValue="67"
                                     id="one"
                                   />
                                 </div>
@@ -199,6 +220,12 @@ class Simulation extends React.Component {
                             </div>
                           </div>
                           <div className="row">
+                          <div className="col-lg-6">
+                              <br />
+                              <a href="#" className="btn btn-red white full-width save-btn">
+                                SAVE
+                        </a>
+                            </div>
                             <div className="col-lg-6">
                               <br />
                               <a href="#" className="btn btn-red white full-width">
