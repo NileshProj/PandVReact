@@ -1,9 +1,53 @@
 import React from 'react';
 
-function Home() {
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {notes: [], note: '',newNote: false};
+        this.newNote = this.newNote.bind(this);
+        this.saveNote = this.saveNote.bind(this);
+        this.updateNote = this.updateNote.bind(this);
+        this.deleteNote = this.deleteNote.bind(this);
+        this.state.notes = [
+            {
+                title: 'Check product fiche for Top-Hat Plan'
+            },
+            {
+                title: 'Complete MIFID questionnaire for Marc'
+            },
+            {
+                title:'Call Claims department regarding Sonjas rejected claim'
+            },
+            {
+                title: 'Follow online training on new Company Law'
+            }
+        ]
+    }
+
+    newNote () {
+        this.setState({newNote: true});
+    }
+
+    saveNote() {
+        let notes = this.state.notes;
+        notes.push({title: this.state.note});
+        this.setState({notes: notes, newNote: false});
+    }
+
+    updateNote(e) {
+        this.setState({note: e.target.value});
+    }
+
+    deleteNote(index) {
+        let notes = this.state.notes;
+        notes.splice(index, 1);
+        this.setState({notes: notes, newNote: false});
+    }
+    
+    render(){
     return (
         <div>
-            <div className="row m-t-150">
+            <div className="row m-t-130">
                 <div className="col-lg-8">
                     <h5 className="text-red">At a glance</h5>
                     <div>
@@ -18,21 +62,21 @@ function Home() {
                             <div className="col-lg-3 p-l-0 p-r-0">
                                 <div className="border">
                                     <span>Offers</span>
-                                    <h5>5</h5>
+                                    <h5>8</h5>
                                     <i className="fa fa-envelope-o fa-2x float-right top m-t-20 m-r-30" />
                                 </div>
                             </div>
                             <div className="col-lg-3 p-r-0 p-l-0">
                                 <div className="border">
                                     <span>Proposals</span>
-                                    <h5>5</h5>
+                                    <h5>20</h5>
                                     <i className="fa fa-users fa-2x float-right top m-t-20 m-r-30" />
                                 </div>
                             </div>
                             <div className="col-lg-3 p-l-0">
                                 <div className="border">
                                     <span>Starred Profiles</span>
-                                    <h5>5</h5>
+                                    <h5>23</h5>
                                     <i className="fa fa-star-o fa-2x float-right top m-t-20 m-r-30" />
                                 </div>
                             </div>
@@ -42,152 +86,35 @@ function Home() {
                     <div className="row">
                         <div className="col-lg-12">
                             <h5 className="text-red">My Tasks (5)</h5>
-                            <i
-                                className="fa fa-pencil-square-o float-right fa-2x top text-red m-r-10"
-                                aria-hidden="true"
+                            <i className="fa fa-pencil-square-o float-right fa-2x top text-red m-r-10"
+                                aria-hidden="true" onClick={this.newNote}
                             />
-                            <div>
+                            <div className="m-t-20">
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="border" style={{ padding: 20 }}>
-                                            <div>
-                                                Check product fiche for Top-Hat Plan
-                <i className="fa fa-check fa-lg" />
-                                                <i className="fa fa-trash fa-lg" />
+                                        <div className="border" style={{ padding: 20, height: 250, overflow: 'auto' }}>
+                                            <div className={"box "+(this.state.newNote ? '': 'hide')}>
+                                                    <div className="row">
+                                                        <input type="text" className="form-control col-lg-6" onChange={(e)=>this.updateNote(e)} placeholder="New Note.."></input>
+                                                        <button className="btn btn-red col-lg-2" disabled={this.state.note.length === 0} onClick={this.saveNote}>Save</button>
+                                                        <button className="btn btn-dark col-lg-2" onClick={()=>this.setState({newNote:false})}>Cancel</button>
+                                                    </div>
                                             </div>
-                                            <div className="m-t-10">Vul MiFID vragenlijst in van Marc</div>
-                                            <div className="m-t-10">
-                                                Kijk product fice voor Top-Hat Plan na
-              </div>
-                                            <div className="m-t-10">
-                                                Call Claims department regarding Sonja's rejected claim
-              </div>
-                                            <div className="m-t-10">
-                                                Kijk product fice voor Top-Hat Plan na
-              </div>
-                                            <div className="m-t-10">
-                                                Follow online training on new Company Law
-              </div>
-                                            <div className="m-t-10">
-                                                Kijk product fice voor Top-Hat Plan na
-              </div>
+                                            <div className={this.state.newNote ? 'hide': ''}>
+                                            {this.state.notes.map((note, index)=>{
+                                                return (
+                                                <div className="m-t-10" key={index}>{note.title} 
+                                                    <i className="fa fa-check fa-lg" />
+                                                    <i className="fa fa-trash fa-lg" onClick={()=>this.deleteNote(index)}/>
+                                                </div>
+                                                )    
+                                            })}
+                                           </div> 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div
-                        id="carouselExample1Controls"
-                        className="carousel slide hide"
-                        data-ride="carousel"
-                    >
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <div>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <div>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <div>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6">
-                                            <div className="border box">
-                                                <h5>kijk Product Fice voor top hat plan na</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a
-                            className="carousel-control-prev"
-                            href="#carouselExample1Controls"
-                            role="button"
-                            data-slide="prev"
-                        >
-                            {/* <span class="carousel-control-prev-icon " aria-hidden="true"></span> */}
-                            <i className="fa fa-chevron-left fa-2x" />
-                            {/* <span class="sr-only">Previous</span> */}
-                        </a>
-                        <a
-                            className="carousel-control-next"
-                            href="#carouselExample1Controls"
-                            role="button"
-                            data-slide="next"
-                        >
-                            {/* <span class="carousel-control-next-icon" aria-hidden="true"></span> */}
-                            <i className="fa fa-chevron-right fa-2x" />
-                            <span className="sr-only">Next</span>
-                        </a>
                     </div>
                 </div>
                 <div className="col-lg-4">
@@ -260,7 +187,6 @@ function Home() {
             <h5 className="text-red">My Follow Ups</h5>
             <br />
             <div>
-                <br />
                 <div
                     id="carouselExampleControls"
                     className="carousel slide"
@@ -283,7 +209,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Amy De Greef</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,18 +219,18 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
-                    </li>
+                                                    Offer <strong>#254174</strong> (First follow-up)</li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>08-04-2019
                     </li>
                                                 </ul>
                                                 <br />
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
+                                                <br></br>
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Offer Details
                   </a>
                                             </div>
                                         </div>
@@ -324,7 +250,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Mathias Schmitz</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -334,10 +260,11 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
+                                                    Contract <strong>#175625</strong> (Client Alteration Review)
+
                     </li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>07-04-2019
                     </li>
                                                 </ul>
                                                 <br />
@@ -345,7 +272,7 @@ function Home() {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Conrtact Details
                   </a>
                                             </div>
                                         </div>
@@ -365,7 +292,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Nathan Celik</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -375,10 +302,10 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
+                                                    Medical Questionnaire (Sign-off pending)
                     </li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>08/04/2019
                     </li>
                                                 </ul>
                                                 <br />
@@ -386,7 +313,7 @@ function Home() {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Document Details
                   </a>
                                             </div>
                                         </div>
@@ -395,7 +322,7 @@ function Home() {
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <div className="row">
+                        <div className="row">
                                 <div className="col-lg-4">
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
@@ -410,7 +337,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Amy De Greef</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -420,18 +347,18 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
-                    </li>
+                                                    Offer <strong>#254174</strong> (First follow-up)</li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>08-04-2019
                     </li>
                                                 </ul>
                                                 <br />
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
+                                                <br></br>
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Offer Details
                   </a>
                                             </div>
                                         </div>
@@ -451,7 +378,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Mathias Schmitz</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -461,10 +388,11 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
+                                                    Contract <strong>#175625</strong> (Client Alteration Review)
+
                     </li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>07-04-2019
                     </li>
                                                 </ul>
                                                 <br />
@@ -472,7 +400,7 @@ function Home() {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Conrtact Details
                   </a>
                                             </div>
                                         </div>
@@ -492,7 +420,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Nathan Celik</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -502,10 +430,10 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
+                                                    Medical Questionnaire (Sign-off pending)
                     </li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>08/04/2019
                     </li>
                                                 </ul>
                                                 <br />
@@ -513,16 +441,16 @@ function Home() {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Document Details
                   </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>    
                         </div>
                         <div className="carousel-item">
-                            <div className="row">
+                        <div className="row">
                                 <div className="col-lg-4">
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
@@ -537,7 +465,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Amy De Greef</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -547,18 +475,18 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
-                    </li>
+                                                    Offer <strong>#254174</strong> (First follow-up)</li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>08-04-2019
                     </li>
                                                 </ul>
                                                 <br />
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
+                                                <br></br>
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Offer Details
                   </a>
                                             </div>
                                         </div>
@@ -578,7 +506,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Mathias Schmitz</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -588,10 +516,11 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
+                                                    Contract <strong>#175625</strong> (Client Alteration Review)
+
                     </li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>07-04-2019
                     </li>
                                                 </ul>
                                                 <br />
@@ -599,7 +528,7 @@ function Home() {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Conrtact Details
                   </a>
                                             </div>
                                         </div>
@@ -619,7 +548,7 @@ function Home() {
                                             </div>
                                             <div className="col-md-7 m-t-50">
                                                 <div className="card-body">
-                                                    <h5 className="card-title">Jhon carlos</h5>
+                                                    <h5 className="card-title">Nathan Celik</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -629,10 +558,10 @@ function Home() {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                        <strong>Status: </strong>Client Alteration Review
+                                                    Medical Questionnaire (Sign-off pending)
                     </li>
                                                     <li className="nav-item">
-                                                        <strong>Due Date: </strong>03/03/2020
+                                                        <strong>Due Date: </strong>08/04/2019
                     </li>
                                                 </ul>
                                                 <br />
@@ -640,13 +569,13 @@ function Home() {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <a href="#" className="btn btn-red white full-width">
-                                                    View Offer
+                                                    View Document Details
                   </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>    
                         </div>
                     </div>
                     <a
@@ -670,8 +599,8 @@ function Home() {
                 </div>
             </div>
         </div>
-
     )
+    }
 }
 
 export default Home;
