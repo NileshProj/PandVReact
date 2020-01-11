@@ -1,12 +1,36 @@
 import React, { Component } from 'react';
-
+import Slider from 'react-rangeslider'
+import '../../range.css';
 
 class Simulation extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: 0
+    }
   }
-  render() {
 
+  handleOnChange = (value) => {
+    this.setState({
+      volume: value
+    })
+  }
+
+  handleChangeStart = () => {
+    console.log('Change event started')
+  };
+
+  handleChange = value => {
+    this.setState({
+      value: value
+    })
+  };
+
+  handleChangeComplete = () => {
+    console.log('Change event completed')
+  };
+  render() {
+    const { value } = this.state
     return (
       <div>
         <div className="container-fluid">
@@ -54,12 +78,13 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-9 p-r-0">
                                 <div className="form-group">
-                                  <label class="label-color" htmlFor="one">Yearly Net Salary</label>
+                                  <label className="label-color" htmlFor="one">Yearly Net Salary</label>
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue={55.0}
+                                    defaultValue="55,000"
                                     id="one"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -75,12 +100,13 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-9 p-r-0">
                                 <div className="form-group">
-                                  <label class="label-color" htmlFor="one">Yearly Gross Salary</label>
+                                  <label className="label-color" htmlFor="one">Yearly Gross Salary</label>
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue={200.0}
+                                    defaultValue="200,000"
                                     id="one"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -96,12 +122,13 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-9 p-r-0">
                                 <div className="form-group">
-                                  <label class="label-color" htmlFor="one">Employment Date</label>
+                                  <label className="label-color" htmlFor="one">Employment Date</label>
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue="12/12/2020"
+                                    defaultValue="23/05/2019"
                                     id="one"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -117,12 +144,13 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-9 p-r-0">
                                 <div className="form-group">
-                                  <label class="label-color" htmlFor="one">Estimated Legal Pension</label>
+                                  <label className="label-color" htmlFor="one">Estimated Legal Pension</label>
                                   <input
                                     type="text"
                                     className="form-control "
                                     defaultValue="42,400"
                                     id="one"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -144,6 +172,7 @@ class Simulation extends React.Component {
                                     className="form-control "
                                     defaultValue="67"
                                     id="one"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -156,7 +185,7 @@ class Simulation extends React.Component {
                                 </div>
                               </div>
                             </div>
-                           </form>
+                          </form>
                         </div>
                       </div>
                       <div className="column simulation-second-column">
@@ -164,94 +193,95 @@ class Simulation extends React.Component {
                           <h5 className="card-title text-red">Fiscal Optimizer</h5>
                           <div className="row">
                             <div className="col-lg-10 m-t-10">
-                              <form>
-                                <div className="form-group">
-                                  <input
-                                    type="range"
-                                    min={0}
-                                    max={100}
-                                    className="form-control-range slider"
-                                    id="myRange"
-                                  />
-                                </div>
-                              </form>
+                              <Slider
+                                min={0}
+                                max={100}
+                                value={value}
+                                onChangeStart={this.handleChangeStart}
+                                onChange={this.handleChange}
+                                onChangeComplete={this.handleChangeComplete}
+                              />
                             </div>
                             <div className="col-lg-2 p-l-0">
-                              <input
-                                type="number"
-                                className="form-control input-range-slider"
-                                placeholder={0}
-                                id="input-demo"
-                                disabled
-                              />
+                              <input type="number" class="form-control input-range-slider"
+                                placeholder="0" id="input-demo" value={this.state.value} disabled></input>
                             </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-10 m-t-20">
-                              <input
-                                type="text"
-                                defaultValue="24.534.33"
-                                className="form-control"
-                                id="myRange"
-                              />
                             </div>
-                            <div className="col-lg-3"></div>
-                          </div>
-                          <br />
-                          <div className="row">
-                            <div className="col-lg-6 m-t-10">
-                              <h5 className="card-title text-red">
-                                Review VAPZ and IPT
+                            <div className="row">
+                              <div className="col-lg-10 m-t-20">
+                                <input
+                                  type="text"
+                                  defaultValue="24,548.56"
+                                  className="form-control"
+                                  id="myRange"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-lg-3"></div>
+                            </div>
+                            <br />
+                            <div className="row">
+                              <div className="col-lg-6 m-t-10">
+                                <h5 className="card-title text-red">
+                                  Review VAPZ and IPT
                         </h5>
+                              </div>
                             </div>
-                          </div>
-                          <div className="row m-t-20">
-                            <div className="col-lg-3">
-                              <span>VAPZ</span>
-                              <br />
-                              <strong>200.000</strong>&nbsp;
-                        <i className="fa fa-info-circle fa-lg" />
+                            <div className="row m-t-20">
+                              <div className="col-lg-3">
+                                <span>VAPZ</span>
+                                <br />
+                                <strong className="fiscal-values">200,000</strong>&nbsp;
+                              <div className="col-lg-3">
+                                  <div className="input-group-append">
+                                    <span className="info-icon-fiscal-first">ⓘ</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-lg-3 ipt-margin">
+                                <span>IPT</span>
+                                <br />
+                                <strong className="fiscal-values">21,2,19.80</strong>&nbsp;
+                              <div className="col-lg-3">
+                                  <div className="input-group-append">
+                                    <span className="info-icon-fiscal-second">ⓘ</span>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div className="col-lg-3">
-                              <span>IPT</span>
-                              <br />
-                              <strong>12.2.19.80</strong>&nbsp;
-                        <i className="fa fa-info-circle fa-lg" />
-                            </div>
-                          </div>
-                          <div className="row">
-                          <div className="col-lg-6">
-                              <br />
-                              <a href="#" className="btn btn-red white full-width save-btn">
-                                SAVE
+                            <div className="row">
+                              <div className="col-lg-6">
+                                <br />
+                                <a href="#" className="btn btn-red white full-width save-btn">
+                                  SAVE
                         </a>
-                            </div>
-                            <div className="col-lg-6">
-                              <br />
-                              <a href="#" className="btn btn-red white full-width">
-                                Done
+                              </div>
+                              <div className="col-lg-6">
+                                <br />
+                                <a href="#" className="btn btn-red white full-width">
+                                  Done
                         </a>
+                              </div>
                             </div>
-                          </div>
-                          <div className="slidecontainer hide">
-                            <p>
-                              Value: <span id="demo" />
-                            </p>
+                            <div className="slidecontainer hide">
+                              <p>
+                                Value: <span id="demo" />
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+
                   </div>
-
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )
-  }
-}
-
+        )
+      }
+    }
+    
 export default Simulation;

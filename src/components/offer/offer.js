@@ -287,7 +287,7 @@ function Offers() {
 
                   <div className="col-lg-12">
                     <a href="#" className="btn btn-red white full-width-confirm">
-                      Confirm
+                      Send Offer
                           </a>
                   </div>
                 </form>
