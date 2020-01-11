@@ -154,7 +154,7 @@ class Details extends React.Component {
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
                                                             <i className="fa fa-envelope-o m-r-5"
                                                                 aria-hidden="true"
-                                                            />{this.state.user.contact1.email}
+                                                            />{this.state.user.contact1.email ? this.state.user.contact1.email : 'not found'}
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact1.email}
@@ -202,7 +202,7 @@ class Details extends React.Component {
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
                                                             <i className="fa fa-envelope-o m-r-5"
                                                                 aria-hidden="true"
-                                                            />{this.state.user.contact2.email}
+                                                            />{this.state.user.contact2.email ? this.state.user.contact2.email : 'not found'}
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact2.email}
@@ -243,10 +243,10 @@ class Details extends React.Component {
                                     <div>
                                         <br />
                                         <div className="border m-l-10 m-r-10">
-                                            Proficiat met verjadrag 12/12/2018
+                                        12/12/2018 (Outgoing - SMS) Proficiat met verjaardag
                       </div>
                                         <div className="border m-l-10 m-t-10 m-r-10">
-                                            Proficiat met verjadrag 12/12/2018
+                                        10/10/2018 (Brief) VAPZ and IPT Policy
                       </div>
                                     </div>
                                 </div>

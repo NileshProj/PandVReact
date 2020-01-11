@@ -4,14 +4,18 @@ import Details from '../details/details.component';
 import Simulation from '../simulation/simulation';
 import Offers from '../offer/offer';
 import SideBar from '../sidebar/sidebar.component';
+import NeedAnalysis from '../need-analysis/need-analysis.component';
+import MIFID from '../mifid/mifid.component';
+import Product from '../product/product.component';
 
 function Profile() {
     return (
-        <div>
-            <SideBar></SideBar>
+        <div className="container-fluid">
             <div className="row m-t-100">
-                <div className="col-lg-1" />
-                <div className="col-lg-11">
+                <div className="col-lg-2" >
+                <SideBar></SideBar>
+                </div>
+                <div className="col-lg-10">
                 <Route exact path="/profile/details">
                     <Details></Details>
                 </Route> 
@@ -22,13 +26,13 @@ function Profile() {
                     <Offers/>
                 </Route>
                 <Route path="/profile/need-analysis">
-                    Need Analysis
+                    <NeedAnalysis></NeedAnalysis>
                 </Route>
                 <Route path="/profile/mifid">
-                    MIFID
+                    <MIFID></MIFID>
                 </Route>
                 <Route path="/profile/product-selection">
-                    Product Selection
+                    <Product></Product>
                 </Route>
                 <Route path="/profile/documents">
                     Documents
