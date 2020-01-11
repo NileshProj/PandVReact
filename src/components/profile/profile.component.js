@@ -22,8 +22,10 @@ class Profile extends React.Component {
                     <SideBar></SideBar>
                     </div>
                     <div className="col-lg-10">
-                    <Route path="/profile/details/:id">
-                        <Details></Details>
+                    <Route path="/profile/details/:id" render={props => {
+                        return <Details {...props} />;
+                        }}
+                    >
                     </Route> 
                     <Route path="/profile/simulation">
                         <Simulation/>

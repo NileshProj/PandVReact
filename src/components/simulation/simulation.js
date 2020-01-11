@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 class Simulation extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
   render() {
 
@@ -29,8 +30,6 @@ class Simulation extends React.Component {
                     className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
                     aria-hidden="true"
                   />
-                  {/* <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> */}
                 </div>
               </nav>
               <div className="tab-content" id="nav-tabContent">
@@ -45,7 +44,7 @@ class Simulation extends React.Component {
                   {/* <div class="card m-t-10"> */}
                   <div className="card">
                     <div className="row">
-                      <div className="column">
+                      <div className="col-lg-6">
                         <div className="card-body">
                           <h5 className="card-title text-red">
                             Information needed to get started
@@ -58,7 +57,7 @@ class Simulation extends React.Component {
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue={55.0}
+                                    defaultValue={"55,000"}
                                     id="one"
                                   />
                                 </div>
@@ -79,7 +78,7 @@ class Simulation extends React.Component {
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue={200.0}
+                                    defaultValue={'2000,000'}
                                     id="one"
                                   />
                                 </div>
@@ -100,7 +99,7 @@ class Simulation extends React.Component {
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue="12/12/2020"
+                                    defaultValue="23/05/2019"
                                     id="one"
                                   />
                                 </div>
@@ -159,8 +158,8 @@ class Simulation extends React.Component {
                            </form>
                         </div>
                       </div>
-                      <div className="column simulation-second-column">
-                        <div className="card-body">
+                      <div className="col-lg-6 ">
+                        <div className="card-body simulation-second-column" style={{height: '100%'}}>
                           <h5 className="card-title text-red">Fiscal Optimizer</h5>
                           <div className="row">
                             <div className="col-lg-10 m-t-10">

@@ -127,7 +127,7 @@ class Header extends React.Component {
             <div className="row">
             {this.state.filterData? this.state.filterData.map((item, index)=>{
               return (
-                <div className="col-lg-4">
+                <div className="col-lg-4" key={index}>
               <div className="row no-gutters">
                 <div className="col-md-4">
                   <img
