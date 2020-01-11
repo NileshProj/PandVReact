@@ -396,6 +396,13 @@ body {
   width: 98%;
   max-width: 98%;
 }
+.custom-popup {
+    position: absolute;
+    height: 60%;
+    width: 1000px;
+    top: 11%;
+    left: 101%;
+}
 .row {
             display: flex;
         }
