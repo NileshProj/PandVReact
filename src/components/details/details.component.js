@@ -243,10 +243,10 @@ class Details extends React.Component {
                                     <div>
                                         <br />
                                         <div className="border m-l-10 m-r-10">
-                                            Proficiat met verjadrag 12/12/2018
+                                        12/12/2018 (Outgoing - SMS) Proficiat met verjaardag
                       </div>
                                         <div className="border m-l-10 m-t-10 m-r-10">
-                                            Proficiat met verjadrag 12/12/2018
+                                        10/10/2018 (Brief) VAPZ and IPT Policy
                       </div>
                                     </div>
                                 </div>

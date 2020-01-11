@@ -5,6 +5,8 @@ import Simulation from '../simulation/simulation';
 import Offers from '../offer/offer';
 import SideBar from '../sidebar/sidebar.component';
 import NeedAnalysis from '../need-analysis/need-analysis.component';
+import MIFID from '../mifid/mifid.component';
+import Product from '../product/product.component';
 
 function Profile() {
     return (
@@ -27,10 +29,10 @@ function Profile() {
                     <NeedAnalysis></NeedAnalysis>
                 </Route>
                 <Route path="/profile/mifid">
-                    MIFID
+                    <MIFID></MIFID>
                 </Route>
                 <Route path="/profile/product-selection">
-                    Product Selection
+                    <Product></Product>
                 </Route>
                 <Route path="/profile/documents">
                     Documents
