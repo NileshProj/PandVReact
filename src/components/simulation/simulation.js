@@ -210,8 +210,8 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-10 m-t-20">
                                 <input
-                                  type="text"
-                                  defaultValue="24,548.56"
+                                  type="number"
+                                  value={parseFloat((24548.67*(this.state.value-14))/100).toFixed(2)}
                                   className="form-control"
                                   id="myRange"
                                   disabled
@@ -231,7 +231,7 @@ class Simulation extends React.Component {
                               <div className="col-lg-3">
                                 <span>VAPZ</span>
                                 <br />
-                                <strong className="fiscal-values">200,000</strong>&nbsp;
+                                <strong className="fiscal-values">3256.87</strong>&nbsp;
                               <div className="col-lg-3">
                                   <div className="input-group-append">
                                     <span className="info-icon-fiscal-first">ⓘ</span>
@@ -241,7 +241,7 @@ class Simulation extends React.Component {
                               <div className="col-lg-3 ipt-margin">
                                 <span>IPT</span>
                                 <br />
-                                <strong className="fiscal-values">21,2,19.80</strong>&nbsp;
+                                <strong className="fiscal-values">{(21291.80*(this.state.value-16)/100).toFixed(2)}</strong>&nbsp;
                               <div className="col-lg-3">
                                   <div className="input-group-append">
                                     <span className="info-icon-fiscal-second">ⓘ</span>
