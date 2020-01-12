@@ -108,8 +108,8 @@ class Details extends React.Component {
         this.setState({user: this.state.temp, edit :false, temp: {}});
     }
 
-    render(match) {
-        console.log(match);
+    render() {
+        let id = this.props.match.params.id;
         return (
             <div>
                 <nav>
@@ -169,9 +169,9 @@ class Details extends React.Component {
                                         </div>
                                         <div className="col-lg-8">
                                             <div className="card-body m-t-50">
-                                                <h5 className="card-title">{this.state.data[this.state.id].name}</h5>
+                                                <h5 className="card-title">{this.state.data[id].name}</h5>
                                                 <p className="card-text">
-                                                    Place De Smet 990 <br></br>7588 Lessines
+                                                {this.state.data[id].address} <br></br>{this.state.data[id].address1}
                                                 </p>
                                                 <i className={"fa fa-star-o fa-2x top m-t-50 m-r-50 text-red "+(this.state.stared ? 'hide': '')}
                                                  onClick={this.starProfile} />

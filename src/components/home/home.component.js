@@ -207,7 +207,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.jpg"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -248,7 +248,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -290,7 +290,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -335,7 +335,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -376,7 +376,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -418,7 +418,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -463,7 +463,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -504,7 +504,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -546,7 +546,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/user1.png"
+                                                    src="images/user.png"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"

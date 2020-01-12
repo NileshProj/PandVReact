@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Details from '../details/details.component';
-import Simulation from '../simulation/simulation';
+import Simulation from '../simulation/simulation.component';
 import Offers from '../offer/offer';
 import SideBar from '../sidebar/sidebar.component';
 import NeedAnalysis from '../need-analysis/need-analysis.component';
@@ -22,8 +22,10 @@ class Profile extends React.Component {
                     <SideBar></SideBar>
                     </div>
                     <div className="col-lg-10">
-                    <Route path="/profile/details/:id">
-                        <Details></Details>
+                    <Route path="/profile/details/:id" render={props => {
+                        return <Details {...props} />;
+                        }}
+                    >
                     </Route> 
                     <Route path="/profile/simulation">
                         <Simulation/>

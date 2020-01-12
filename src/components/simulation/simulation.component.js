@@ -5,6 +5,7 @@ import '../../range.css';
 class Simulation extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
     this.state = {
       value: 0
     }
@@ -53,8 +54,6 @@ class Simulation extends React.Component {
                     className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
                     aria-hidden="true"
                   />
-                  {/* <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> */}
                 </div>
               </nav>
               <div className="tab-content" id="nav-tabContent">
@@ -64,12 +63,9 @@ class Simulation extends React.Component {
                   role="tabpanel"
                   aria-labelledby="nav-home-tab"
                 >
-                  {/* <div class="row m-t-10"> */}
-                  {/* <div class="col-lg-6"> */}
-                  {/* <div class="card m-t-10"> */}
                   <div className="card">
                     <div className="row">
-                      <div className="column">
+                      <div className="col-lg-6">
                         <div className="card-body">
                           <h5 className="card-title text-red">
                             Information needed to get started
@@ -166,7 +162,7 @@ class Simulation extends React.Component {
                             <div className="row">
                               <div className="col-lg-9 p-r-0">
                                 <div className="form-group">
-                                  <label class="label-color" htmlFor="one">Pension age</label>
+                                  <label className="label-color" htmlFor="one">Pension age</label>
                                   <input
                                     type="number"
                                     className="form-control "
@@ -188,8 +184,8 @@ class Simulation extends React.Component {
                           </form>
                         </div>
                       </div>
-                      <div className="column simulation-second-column">
-                        <div className="card-body">
+                      <div className="col-lg-6 ">
+                        <div className="card-body simulation-second-column" style={{height: '100%'}}>
                           <h5 className="card-title text-red">Fiscal Optimizer</h5>
                           <div className="row">
                             <div className="col-lg-10 m-t-10">
@@ -203,7 +199,7 @@ class Simulation extends React.Component {
                               />
                             </div>
                             <div className="col-lg-2 p-l-0">
-                              <input type="number" class="form-control input-range-slider"
+                              <input type="number" className="form-control input-range-slider"
                                 placeholder="0" id="input-demo" value={this.state.value} disabled></input>
                             </div>
                             </div>
