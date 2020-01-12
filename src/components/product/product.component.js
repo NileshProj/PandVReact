@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Product extends React.Component {
     constructor(props) {
@@ -32,14 +33,11 @@ class Product extends React.Component {
                             <div className="dropdown-menu" aria-labelledby="dropdownMenu">
                                 <span className="dropdown-item-text">Offers</span>
                                 <a className="dropdown-item" href="#">
-                                    Contracts
-          </a>
+                                    Contracts</a>
                                 <a className="dropdown-item" href="#">
-                                    Proposals
-          </a>
+                                    Proposals</a>
                                 <a className="dropdown-item" href="#">
-                                    Documents
-          </a>
+                                    Documents</a>
                             </div>
                         </div>
                         
@@ -52,52 +50,6 @@ class Product extends React.Component {
                         role="tabpanel"
                         aria-labelledby="nav-home-tab"
                     >
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div
-                                    className="card box-shadow hide"
-                                    style={{ width: 300, margin: 20 }}
-                                >
-                                    <div className="row no-gutters">
-                                        <div className="col-md-5">
-                                            <img
-                                                src="images/user1.png"
-                                                height={100}
-                                                width={100}
-                                                className="profile-pic"
-                                                alt="Name"
-                                            />
-                                        </div>
-                                        <div className="col-md-7 m-t-50">
-                                            <div className="card-body">
-                                                <h5 className="card-title">Jhon carlos</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-1" />
-                                        <div className="col-lg-8">
-                                            <br />
-                                            <ul className="nav flex-column mb-2">
-                                                <li className="nav-item">
-                                                    <strong>Status: </strong>Client Alteration Review
-                  </li>
-                                                <li className="nav-item">
-                                                    <strong>Due Date: </strong>03/03/2020
-                  </li>
-                                            </ul>
-                                            <br />
-                                        </div>
-                                        <div className="col-lg-3" />
-                                        <div className="col-lg-12">
-                                            <a href="#" className="btn btn-red white full-width">
-                                                View Offer
-                </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div className="border">
                             <div className="row">
                                 <div className="col-lg-12 m-l-50">
@@ -110,14 +62,14 @@ class Product extends React.Component {
             </span>
                                     <br />
                                     <div className="row">
-                                        <div className="col-lg-4">
+                                        <div className="col-lg-5">
                                             <div
                                                 className="card box-shadow m-t-30"
                                                 style={{ width: 350, height: "auto" }}
                                             >
                                                 <div className="row">
                                                     <div className="col-lg-1" />
-                                                    <div className="col-lg-8 m-t-10">
+                                                    <div className="col-lg-9 m-t-10">
                                                         <h5>Top-Hat Plus Plan(IPT)</h5>
                                                         <br />
                                                         <span>Pension Savings</span>
@@ -127,24 +79,24 @@ class Product extends React.Component {
                                                         <span>Annuity</span>
                                                         <br />
                                                     </div>
-                                                    <div className="col-lg-3" />
+                                                    <div className="col-lg-2" />
                                                     <div className="col-lg-12">
                                                         <br />
-                                                        <a href="#" className="btn btn-red white full-width">
+                                                        <Link className="btn btn-red white full-width" to="/profile/product-details">
                                                             Details
-                      </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-lg-5">
                                             <div
                                                 className="card box-shadow m-t-30"
                                                 style={{ width: 350, height: "auto" }}
                                             >
                                                 <div className="row">
                                                     <div className="col-lg-1" />
-                                                    <div className="col-lg-8 m-t-10">
+                                                    <div className="col-lg-9 m-t-10">
                                                         <h5>Capi 21 VAPZ</h5>
                                                         <br />
                                                         <span>Pension Savings</span>
@@ -154,12 +106,12 @@ class Product extends React.Component {
                                                         <span>Annuity</span>
                                                         <br />
                                                     </div>
-                                                    <div className="col-lg-3" />
+                                                    <div className="col-lg-2" />
                                                     <div className="col-lg-12">
                                                         <br />
-                                                        <a href="#" className="btn btn-red white full-width">
+                                                        <Link className="btn btn-red white full-width" to="/profile/product-details">
                                                             Details
-                      </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,14 +120,14 @@ class Product extends React.Component {
                                     <br />
                                     <h5 className="text-red m-t-30">Non-Advised Products</h5>
                                     <div className="row">
-                                        <div className="col-lg-4">
+                                        <div className="col-lg-5">
                                             <div
                                                 className="card box-shadow m-t-30"
                                                 style={{ width: 350, height: "auto" }}
                                             >
                                                 <div className="row">
                                                     <div className="col-lg-1" />
-                                                    <div className="col-lg-8 m-t-10">
+                                                    <div className="col-lg-9 m-t-10">
                                                         <h5>CAPI 23 Dynamic Fund</h5>
                                                         <br />
                                                         <span>Pension Savings</span>
@@ -185,24 +137,24 @@ class Product extends React.Component {
                                                         <span>Annuity</span>
                                                         <br />
                                                     </div>
-                                                    <div className="col-lg-3" />
+                                                    <div className="col-lg-2" />
                                                     <div className="col-lg-12">
                                                         <br />
-                                                        <a href="#" className="btn btn-red white full-width">
+                                                        <Link className="btn btn-red white full-width" to="/profile/product-details">
                                                             Details
-                      </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-lg-5">
                                             <div
                                                 className="card box-shadow m-t-30"
                                                 style={{ width: 350, height: "auto" }}
                                             >
                                                 <div className="row">
                                                     <div className="col-lg-1" />
-                                                    <div className="col-lg-8 m-t-10">
+                                                    <div className="col-lg-9 m-t-10">
                                                         <h5>CAPI 23 Aggressive Fund</h5>
                                                         <br />
                                                         <span>Pension Savings</span>
@@ -212,12 +164,12 @@ class Product extends React.Component {
                                                         <span>Annuity</span>
                                                         <br />
                                                     </div>
-                                                    <div className="col-lg-3" />
+                                                    <div className="col-lg-2" />
                                                     <div className="col-lg-12">
                                                         <br />
-                                                        <a href="#" className="btn btn-red white full-width">
+                                                        <Link className="btn btn-red white full-width" to="/profile/product-details">
                                                             Details
-                      </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>

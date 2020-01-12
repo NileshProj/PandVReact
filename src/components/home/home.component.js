@@ -3,23 +3,29 @@ import React from 'react';
 class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {notes: [], note: '',newNote: false};
+        this.state = {notes: [], note: '',newNote: false, edit: -1};
         this.newNote = this.newNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
         this.updateNote = this.updateNote.bind(this);
         this.deleteNote = this.deleteNote.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.editNote = this.editNote.bind(this);
         this.state.notes = [
             {
-                title: 'Check product fiche for Top-Hat Plan'
+                title: 'Check product fiche for Top-Hat Plan',
+                checked: false
             },
             {
-                title: 'Complete MIFID questionnaire for Marc'
+                title: 'Complete MIFID questionnaire for Marc',
+                checked: false
             },
             {
-                title:'Call Claims department regarding Sonjas rejected claim'
+                title:'Call Claims department regarding Sonjas rejected claim',
+                checked: false
             },
             {
-                title: 'Follow online training on new Company Law'
+                title: 'Follow online training on new Company Law',
+                checked: false
             }
         ]
     }
@@ -44,12 +50,22 @@ class Home extends React.Component {
         this.setState({notes: notes, newNote: false});
     }
     
+    handleChange(index, e) {
+        let notes = this.state.notes;
+        notes[index].title = e.target.value
+        this.setState({notes: notes});
+    }
+
+    editNote(index) {
+        this.setState({edit: index});
+    }
+
     render(){
     return (
         <div className="container">
             <div className="row m-t-130">
                 <div className="col-lg-8">
-                    <h5 className="text-red">At a glance</h5>
+                    <h5 className="text-red">At a Glance</h5>
                     <div>
                         <div className="row">
                             <div className="col-lg-3 p-r-0">
@@ -86,7 +102,7 @@ class Home extends React.Component {
                     <div className="row">
                         <div className="col-lg-12">
                             <h5 className="text-red">My Tasks (5)</h5>
-                            <i className="fa fa-pencil-square-o float-right fa-2x top text-red m-r-10"
+                            <i className="fa fa-plus-circle float-right fa-2x top text-red m-r-10"
                                 aria-hidden="true" onClick={this.newNote}
                             />
                             <div className="m-t-20">
@@ -96,20 +112,24 @@ class Home extends React.Component {
                                             <div className={"box "+(this.state.newNote ? '': 'hide')}>
                                                     <div className="row">
                                                         <input type="text" className="form-control col-lg-6" onChange={(e)=>this.updateNote(e)} placeholder="New Note.."></input>
-                                                        <button className="btn btn-red col-lg-2" disabled={this.state.note.length === 0} onClick={this.saveNote}>Save</button>
-                                                        <button className="btn btn-dark col-lg-2" onClick={()=>this.setState({newNote:false})}>Cancel</button>
+                                                        {/* <i className="fa fa-save fa-lg m-l-10 m-t-10 text-red" disabled={this.state.note.length === 0} onClick={this.saveNote}></i> */}
+                                                        <button className="btn btn-red col-lg-2 m-l-10" disabled={this.state.note.length === 0} onClick={this.saveNote}>Save</button>
+                                                        {/* <button className="btn btn-dark col-lg-2" onClick={()=>this.setState({newNote:false})}>Cancel</button> */}
                                                     </div>
                                             </div>
                                             <div className={this.state.newNote ? 'hide': ''}>
                                             {this.state.notes.map((note, index)=>{
                                                 return (
-                                                <div className="row"  key={index}>    
+                                                <div className="row notes-item"  key={index}>    
                                                     <div className="col-lg-10" >
-                                                        <div style={{fontSize: '18px', margin: '5px 10px 10px 10px'}}>{note.title}</div> 
+                                                        <div style={{fontSize: '18px', margin: '5px 10px 10px 10px'}} className={" "+(this.state.edit === index ? 'hide':'')}>{note.title}</div>
+                                                        <input type="text" className={"form-control "+(this.state.edit === index ? '':'hide')} value={note.title} onChange={(e)=>this.handleChange(index, e)}></input> 
                                                     </div>
                                                     <div className="col-lg-2">
-                                                        <div style={{margin: '12px 10px 10px 10px'}}>
-                                                            <i className={"fa fa-check fa-lg m-r-10 "+(index !== 2 ? 'hide': '')} />
+                                                    <i className={"fa fa-save fa-lg text-red m-t-10 m-l-10 "+(this.state.edit === index ? '':'hide')} onClick={()=>this.setState({edit:-1})}></i>
+                                                        <div style={{margin: '12px 10px 10px 10px'}} className={(this.state.edit === index ? 'hide': '')}>
+                                                            <i className={"fa fa-check fa-lg m-r-10 "+(note.checked ? '': 'hide')} />
+                                                            <i className="fa fa-edit fa-lg m-r-10" onClick={()=>this.editNote(index)}/>
                                                             <i className="fa fa-trash fa-lg float-right" onClick={()=>this.deleteNote(index)}/>
                                                         </div>
                                                     </div>
@@ -226,7 +246,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Offer <strong>#254174</strong> (First follow-up)</li>
+                                                    Offer <strong>#254174</strong><br></br> (First follow-up)</li>
                                                     <li className="nav-item">
                                                         <strong>Due Date: </strong>08-04-2019
                     </li>
@@ -236,9 +256,9 @@ class Home extends React.Component {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <br></br>
-                                                <a href="#" className="btn btn-red white full-width">
+                                                <button className="btn btn-red white full-width">
                                                     View Offer Details
-                  </a>
+                                                </button>        
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +287,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Contract <strong>#175625</strong> (Client Alteration Review)
+                                                    Contract <strong>#175625</strong><br></br> (Client Alteration Review)
 
                     </li>
                                                     <li className="nav-item">
@@ -278,9 +298,10 @@ class Home extends React.Component {
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
-                                                <a href="#" className="btn btn-red white full-width">
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
                                                     View Conrtact Details
-                  </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -309,7 +330,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Medical Questionnaire (Sign-off pending)
+                                                    Medical Questionnaire<br></br> (Sign-off pending)
                     </li>
                                                     <li className="nav-item">
                                                         <strong>Due Date: </strong>08/04/2019
@@ -319,9 +340,9 @@ class Home extends React.Component {
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Document Details
-                  </a>
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
+                                                    View Document Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -354,7 +375,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Offer <strong>#254174</strong> (First follow-up)</li>
+                                                    Offer <strong>#254174</strong><br></br> (First follow-up)</li>
                                                     <li className="nav-item">
                                                         <strong>Due Date: </strong>08-04-2019
                     </li>
@@ -364,9 +385,8 @@ class Home extends React.Component {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <br></br>
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Offer Details
-                  </a>
+                                                <button className="btn btn-red white full-width">
+                                                    View Offer Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -395,7 +415,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Contract <strong>#175625</strong> (Client Alteration Review)
+                                                    Contract <strong>#175625</strong><br></br> (Client Alteration Review)
 
                     </li>
                                                     <li className="nav-item">
@@ -406,9 +426,9 @@ class Home extends React.Component {
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Conrtact Details
-                  </a>
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
+                                                    View Conrtact Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -437,7 +457,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Medical Questionnaire (Sign-off pending)
+                                                    Medical Questionnaire<br></br> (Sign-off pending)
                     </li>
                                                     <li className="nav-item">
                                                         <strong>Due Date: </strong>08/04/2019
@@ -447,9 +467,9 @@ class Home extends React.Component {
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Document Details
-                  </a>
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
+                                                    View Document Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -482,7 +502,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Offer <strong>#254174</strong> (First follow-up)</li>
+                                                    Offer <strong>#254174</strong><br></br> (First follow-up)</li>
                                                     <li className="nav-item">
                                                         <strong>Due Date: </strong>08-04-2019
                     </li>
@@ -492,9 +512,8 @@ class Home extends React.Component {
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
                                                 <br></br>
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Offer Details
-                  </a>
+                                                <button className="btn btn-red white full-width">
+                                                    View Offer Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -523,7 +542,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Contract <strong>#175625</strong> (Client Alteration Review)
+                                                    Contract <strong>#175625</strong><br></br> (Client Alteration Review)
 
                     </li>
                                                     <li className="nav-item">
@@ -534,9 +553,9 @@ class Home extends React.Component {
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Conrtact Details
-                  </a>
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
+                                                    View Conrtact Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -565,7 +584,7 @@ class Home extends React.Component {
                                                 <br />
                                                 <ul className="nav flex-column mb-2">
                                                     <li className="nav-item">
-                                                    Medical Questionnaire (Sign-off pending)
+                                                    Medical Questionnaire<br/> (Sign-off pending)
                     </li>
                                                     <li className="nav-item">
                                                         <strong>Due Date: </strong>08/04/2019
@@ -575,9 +594,9 @@ class Home extends React.Component {
                                             </div>
                                             <div className="col-lg-3" />
                                             <div className="col-lg-12">
-                                                <a href="#" className="btn btn-red white full-width">
-                                                    View Document Details
-                  </a>
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
+                                                    View Document Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -604,6 +623,7 @@ class Home extends React.Component {
                         <span className="sr-only">Next</span>
                     </a>
                 </div>
+            <br></br>
             </div>
         </div>
     )

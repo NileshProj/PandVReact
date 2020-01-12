@@ -1,10 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 class NeedAnalysis extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state  = {
+            deathCaptial: true,
+            singlePrem: true,
+            deathCover: true,
+            invalidity: true,
+            accidental: true,
+            pension: true,
+            saving: true
+        }
+    }
     render() {
         return (
-            <div className="col-lg-10">
+            <div>
                 <nav>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
                         <a
@@ -69,8 +81,9 @@ class NeedAnalysis extends React.Component {
                                                                 />
                                                             </div>
                                                         </div>
-                                                        <div className="col-lg-3">
-                                                            <i className="fa fa-info-circle fa-2x m-t-30" />
+                                                        <div className="col-lg-3 m-t-20">
+                                                        <span className="info-icon-simulation" data-toggle="tooltip" 
+                                data-placement="top" title="Pension Capital">ⓘ</span>
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -85,8 +98,9 @@ class NeedAnalysis extends React.Component {
                                                                 />
                                                             </div>
                                                         </div>
-                                                        <div className="col-lg-3">
-                                                            <i className="fa fa-info-circle fa-2x m-t-30" />
+                                                        <div className="col-lg-3 m-t-20">
+                                                        <span className="info-icon-simulation" data-toggle="tooltip" 
+                                data-placement="top" title="Death Capital">ⓘ</span>
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -99,17 +113,18 @@ class NeedAnalysis extends React.Component {
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.deathCaptial ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({deathCaptial: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.deathCaptial ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({deathCaptial: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-lg-3">
-                                                            <i className="fa fa-info-circle fa-2x m-t-30" />
+                                                        <div className="col-lg-3 m-t-10">
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -117,19 +132,21 @@ class NeedAnalysis extends React.Component {
                                                             <div className="form-group">
                                                                 <label htmlFor="two">
                                                                     Do you want to pay single premium?
-                          </label>
+                                                                </label>
                                                                 <br />
                                                                 <div
                                                                     className="btn-group btn-group-sm"
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.singlePrem ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({singlePrem: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.singlePrem ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({singlePrem: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -140,12 +157,12 @@ class NeedAnalysis extends React.Component {
                                         </div>
                                         <div className="col-lg-6">
                                             <div
-                                                className="bg-light p-l-20 p-t-20"
-                                                style={{ height: "100%" }}
+                                                className="p-l-20 p-t-20"
+                                                style={{ height: "100%", backgroundColor:'#f7f4f4' }}
                                             >
                                                 <h5 className="card-title text-red p-l-10 p-t-10">
                                                     Financial objective
-                  </h5>
+                                                </h5>
                                                 <form>
                                                     <div className="row">
                                                         <div className="col-lg-9 p-r-0">
@@ -157,12 +174,14 @@ class NeedAnalysis extends React.Component {
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.deathCover ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({deathCover: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.deathCover ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({deathCover: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -178,12 +197,14 @@ class NeedAnalysis extends React.Component {
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.invalidity ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({invalidity: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.invalidity ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({invalidity: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -199,12 +220,14 @@ class NeedAnalysis extends React.Component {
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.accidental ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({accidental: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.accidental ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({accidental: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -220,12 +243,14 @@ class NeedAnalysis extends React.Component {
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.pension ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({pension: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.pension ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({pension: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -241,20 +266,22 @@ class NeedAnalysis extends React.Component {
                                                                     role="group"
                                                                     aria-label
                                                                 >
-                                                                    <button type="button" className="btn btn-red white">
+                                                                    <button type="button"  className={"btn "+(this.state.saving ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({saving: true})}>
                                                                         Yes
-                            </button>
-                                                                    <button type="button" className="btn btn-secondary">
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(!this.state.saving ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({saving: false})}>
                                                                         No
-                            </button>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div className="col-lg-3"></div>
                                                         <div className="col-lg-9 p-r-0">
-                                                            <a href="#" className="btn btn-red white full-width">
+                                                            <Link className="btn btn-red white full-width" to="/profile/mifid">
                                                                 Proceed to MIFID Quesionnaire
-                        </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </form>

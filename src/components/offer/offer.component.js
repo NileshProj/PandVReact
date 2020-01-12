@@ -194,12 +194,13 @@ function Offers() {
                                 className="form-control input-width"
                                 id="iban"
                                 placeholder="BE63001607116208"
-                                disabled
+                                
                               />
                             </div>
                             <div className="column-icon">
                               <div className="input-group-append">
-                                <span className="info-icon-firstrow">ⓘ</span>
+                                <span className="info-icon-firstrow" data-toggle="tooltip" 
+                                data-placement="top" title="IBAN Information">ⓘ</span>
                               </div>
                             </div>
                           </div>
@@ -219,12 +220,13 @@ function Offers() {
                                 className="form-control input-width"
                                 id="paymentmode"
                                 placeholder="Direct Debit"
-                                disabled
+                                
                               />
                             </div>
                             <div className="column-icon">
                               <div className="input-group-append">
-                                <span className="info-icon-firstrow">ⓘ</span>
+                                <span className="info-icon-firstrow" data-toggle="tooltip" 
+                                data-placement="top" title="Payment mode">ⓘ</span>
                               </div>
                             </div>
                           </div>
@@ -246,12 +248,13 @@ function Offers() {
                                 className="form-control input-width"
                                 id="bic"
                                 placeholder="GEBABEBB"
-                                disabled
+                                
                               />
                             </div>
                             <div className="column-icon">
                               <div className="input-group-append">
-                                <span className="info-icon-secondrow">ⓘ</span>
+                                <span className="info-icon-secondrow" data-toggle="tooltip" 
+                                data-placement="top" title="BIC information">ⓘ</span>
                               </div>
                             </div>
                           </div>
@@ -271,12 +274,13 @@ function Offers() {
                                 className="form-control input-width"
                                 id="paymentfrequency"
                                 placeholder="Monthly"
-                                disabled
+                                
                               />
                             </div>
                             <div className="column-icon">
                               <div className="input-group-append">
-                                <span className="info-icon-secondrow">ⓘ</span>
+                                <span className="info-icon-secondrow" data-toggle="tooltip" 
+                                data-placement="top" title="This is payment frequency">ⓘ</span>
                               </div>
                             </div>
                           </div>

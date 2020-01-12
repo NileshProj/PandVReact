@@ -2,11 +2,12 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Details from '../details/details.component';
 import Simulation from '../simulation/simulation.component';
-import Offers from '../offer/offer';
+import Offers from '../offer/offer.component';
 import SideBar from '../sidebar/sidebar.component';
 import NeedAnalysis from '../need-analysis/need-analysis.component';
 import MIFID from '../mifid/mifid.component';
 import Product from '../product/product.component';
+import ProductDetails from '../product/product-details.component';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -41,6 +42,9 @@ class Profile extends React.Component {
                     </Route>
                     <Route path="/profile/product-selection">
                         <Product></Product>
+                    </Route>
+                    <Route path="/profile/product-details">
+                        <ProductDetails></ProductDetails>
                     </Route>
                     <Route path="/profile/documents">
                         Documents

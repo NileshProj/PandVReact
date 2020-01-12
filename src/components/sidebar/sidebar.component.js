@@ -128,11 +128,18 @@ class SideBar extends React.Component {
                                 <div className="bg-light p-l-20 p-t-10" style={{ height: "100%" }}>
                                     <h5 className="text-red">80% Simulation</h5>
                                     <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                    since the 1500s, when an unknown printer took a galley of type and
-                                    scrambled it to make a type specimen book. It has survived not only
-                                    five centuries, but also the leap into electronic typesetting
+                                    The 80% rule for self-employed company directors in your Individual Pension Agreement for company directors
+                                    The premiums for the Individual Pension Agreement and for the Group Insurance for company directors count as 
+                                    deductible business expenses for your company. However, in order to benefit from this tax advantage, 
+                                    you need to comply with the so-called 80% rule.
+                                    </p>
+                                    <p>
+                                    The 80% rule states that the statutory pension and the extra-legal pension taken together may not amount to more 
+                                    than 80% of the 'normal' gross salary during the previous year. If this limit is exceeded, the company 
+                                    will be unable to deduct the portion of the premium that exceeded the 80% rule as a professional expense.
+                                    <strong><br></br>The 80% rule is defined as follows:<br></br>
+                                    Extra-legal pension ≤ (80% of the 'normal' gross salary – statutory pension)<br></br>X (n/D) x (coefficient) – other additional capital sums
+                                    </strong>
                                     </p>
                                     <h5 className="text-red">Recent Simulations</h5>
                                     <div className="m-t-10">

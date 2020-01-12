@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { active: 1, data: [{}], filterData:[] };
+    this.state = { active: 1, data: [{}], filterData: [], searchText: '' };
     this.setActive = this.setActive.bind(this);
     this.search = this.search.bind(this);
     this.state.data = [
@@ -18,9 +18,9 @@ class Header extends React.Component {
       },
       {
         name: 'Tim Charles (177013)',
-        dob: '22/03/1957',
-        address: 'Boulevard De Wilde 81',
-        address1: '1440 Péruwelz'
+        dob: '12/06/1975',
+        address: 'Palm villa 932',
+        address1: '100 Péruwelz'
       },
       {
         name: 'Charleen Jones (248418)',
@@ -30,25 +30,25 @@ class Header extends React.Component {
       },
       {
         name: 'Charlene Yi (182215)',
-        dob: '15/09/1965',
+        dob: '14/01/1959',
         address: 'Avenue Gielen 9',
         address1: '1440 Péruwelz'
       },
       {
         name: 'James Charlton (216158)',
-        dob: '15/09/1965',
+        dob: '21/10/1966',
         address: 'Avenue Gielen 9',
         address1: '1440 Péruwelz'
       },
       {
         name: 'Charly Luyten (862528)',
-        dob: '15/09/1965',
+        dob: '19/08/1968',
         address: 'Avenue Gielen 9',
         address1: '1440 Péruwelz'
       },
       {
         name: 'Charly Smith (345774)',
-        dob: '15/09/1965',
+        dob: '1/10/1970',
         address: 'Avenue Gielen 9',
         address1: '1440 Péruwelz'
       },
@@ -60,7 +60,7 @@ class Header extends React.Component {
       },
       {
         name: 'Charl Schmitz (165138)',
-        dob: '15/09/1965',
+        dob: '30/03/1964',
         address: 'Avenue Gielen 9',
         address1: '1440 Péruwelz'
       },
@@ -72,12 +72,12 @@ class Header extends React.Component {
   }
 
   search() {
-    let temp = this.state.data.filter(item=> item.name.toLowerCase().includes(this.state.searchText.toLowerCase()));
-    this.setState({filterData: temp});
+    let temp = this.state.data.filter(item => item.name.toLowerCase().includes(this.state.searchText.toLowerCase()));
+    this.setState({ filterData: temp });
   }
 
   updateText(e) {
-    this.setState({ searchText: e.target.value, filterData: [] });
+    this.setState({ searchText: e.target.value });
   }
 
 
@@ -101,8 +101,8 @@ class Header extends React.Component {
               </li>
             </ul>
             <form className="form-inline mt-2 mt-md-0">
-              <input className="mr-sm-2 search" type="text" placeholder="Search by Customer Id or email id"
-                onChange={(e) => this.updateText(e)} aria-label="Search" />
+              <input className="mr-sm-2 search" type="text" value={this.state.searchText} placeholder="Search by Customer Id or email id"
+                onChange={(e) => this.updateText(e)} onKeyUp={this.search} aria-label="Search" />
               <i className="fa fa-search fa-lg search-icon" aria-hidden="true" onClick={this.search} />
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item  m-r-50 ">
@@ -121,62 +121,62 @@ class Header extends React.Component {
           </div>
         </nav>
 
-        <div className={"bg-light search-result "+(this.state.filterData.length === 0 ? 'hide': '') }>
-          <i className="fa fa-close fa-lg float-right m-r-10 m-t-10" onClick={()=>this.setState({filterData:[]})}></i>
+        <div className={"bg-light search-result " + (this.state.filterData.length === 0 && this.state.searchText === '' ? 'hide' : '')}>
+          <i className="fa fa-close fa-lg float-right m-r-10 m-t-10" onClick={() => this.setState({ filterData: [], searchText: '' })}></i>
           <div className="container">
             <div className="row">
-            {this.state.filterData? this.state.filterData.map((item, index)=>{
-              return (
-                <div className="col-lg-4" key={index}>
-              <div className="row no-gutters">
-                <div className="col-md-4">
-                  <img
-                    src={ item.imageurl ? item.imageurl : '/images/user.png'}
-                    height={70}
-                    width={70}
-                    className="profile-pic"
-                    alt="Name"
-                  />
-                </div>
-                <div className="col-md-7 m-t-20 m-l-10">
-                  <div>
-                    <Link style={{ color: "#000" }} onClick={()=>{this.setState({filterData:[]});this.setActive(2)}} to={"/profile/details/"+index}>
-                      <strong>{item.name}</strong>
-                    </Link>
-                    <br />
-                    <div style={{fontSize: '11px'}}>
-                      <span>{item.dob}</span>
-                      <br />
-                      <span>{item.address}</span>
-                      <br />
-                      <span>{item.address1}</span>
+              {this.state.filterData ? this.state.filterData.map((item, index) => {
+                return (
+                  <div className="col-lg-4" key={index}>
+                    <div className="row no-gutters">
+                      <div className="col-md-4">
+                        <img
+                          src={item.imageurl ? item.imageurl : '/images/user.png'}
+                          height={70}
+                          width={70}
+                          className="profile-pic"
+                          alt="Name"
+                        />
+                      </div>
+                      <div className="col-md-7 m-t-20 m-l-10">
+                        <div>
+                          <Link style={{ color: "#000" }} onClick={() => { this.setState({ filterData: [], searchText: '' }); this.setActive(2) }} to={"/profile/details/" + index}>
+                            <strong>{item.name}</strong>
+                          </Link>
+                          <br />
+                          <div style={{ fontSize: '11px' }}>
+                            <span>{item.dob}</span>
+                            <br />
+                            <span>{item.address}</span>
+                            <br />
+                            <span>{item.address1}</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                )
+              }) : <div className="col-lg-4 m-t-10">No result found.</div>}
+
+
+            </div>
+            <div>
+              <br />
+              <div className="row">
+                <div className="col-lg-6">
+                  <h4 className="card-title text-red float-right">
+                    Not the {this.state.searchText} you are looking for?
+              </h4>
+                </div>
+                <div className="col-lg-4">
+                  <button className="btn btn-red white full-width float-left">
+                    Register a New Prospect
+              </button>
                 </div>
               </div>
-            </div>
-              )
-            }): null}
-            
-
-          </div>
-          <div>
-          <br />
-          <div className="row">
-            <div className="col-lg-6">
-              <h4 className="card-title text-red float-right">
-                Not the {this.state.searchText} you are looking for?
-              </h4>
-            </div>
-            <div className="col-lg-4">
-              <button className="btn btn-red white full-width float-left">
-                Register a New Prospect
-              </button>
+              <br></br>
             </div>
           </div>
-          <br></br>
-        </div>
-        </div>
         </div>
       </header>
 

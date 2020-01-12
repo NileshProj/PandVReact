@@ -302,6 +302,11 @@ body {
   .btn-red {
     background-color: rgb(230, 74, 25);
   }
+  .form-group
+  .btn-group {
+    border: 1px solid #d6d4d4;
+    border-radius: 5px;
+  }
 
   .top {
     position: absolute;
@@ -365,9 +370,10 @@ body {
   .frequently-used-menu .nav-item{
     border-bottom: none;
   }
-.simulation-menu .nav-item{
-  border-bottom: none;
-}
+  .simulation-menu .nav-item{
+    border-bottom: none;
+    font-size: 15px;
+  }
 .arrow-right {
   width: 0; 
   height: 0; 
@@ -397,11 +403,11 @@ body {
   max-width: 98%;
 }
 .custom-popup {
-    position: absolute;
-    height: 60%;
-    width: 1000px;
-    top: 11%;
-    left: 101%;
+  position: fixed;
+  height: 60%;
+  width: 1000px;
+  top: 14%;
+  left: 16%;
 }
 .row {
             display: flex;
@@ -473,4 +479,41 @@ body {
           position: absolute;
           top: 82px;
           width: 100%;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(.5turn); }
+        }
+        
+        @keyframes bg {
+          50% { background: #655; }
+        }
+
+        .pie {
+          width: 100px; height: 100px;
+          border-radius: 50%;
+          background: #e4dddd;
+          background-image:
+  linear-gradient(to right, transparent 50%, #655 0);
+        }
+        
+        .pie::before {
+          content: ’;
+          display: block;
+          margin-left: 50%;
+          height: 100%;
+          border-radius: 0 100% 100% 0 / 50%;
+          background: #655;
+          transform-origin: left;
+          transform: rotate(.1turn);
+        }
+        .brown {
+          color: #655;
+        }
+        .lightbrown {
+          color: #e4dddd;
+        }
+
+        .notes-item:hover {
+          background-color: #e4dddd;
         }

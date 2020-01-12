@@ -53,12 +53,12 @@
 * Rangeslider - Horizontal slider
 */
 .rangeslider-horizontal {
-  height: 30%;
+  height: 15%;
   border-radius: 10px;
 }
 .rangeslider-horizontal .rangeslider__fill {
   height: 100%;
-  background-color: #7cb342;
+  background-color: #e4dddd;
   border-radius: 10px;
   top: 0;
 }
@@ -106,7 +106,7 @@
 }
 .rangeslider-vertical .rangeslider__fill {
   width: 100%;
-  background-color: #7cb342;
+  background-color: #e4dddd;
   box-shadow: none;
   bottom: 0;
 }

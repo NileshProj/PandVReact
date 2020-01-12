@@ -201,6 +201,7 @@ class Details extends React.Component {
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact1.mobile1} 
+                                                            placeholder="Mobile"
                                                             onChange={(e)=>this.handleChange('contact1', 'mobile1',e)}></input>
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
@@ -210,6 +211,7 @@ class Details extends React.Component {
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                         <input type="text" className="form-control" value={this.state.user.contact1.mobile2}
+                                                            placeholder="Mobile"
                                                             onChange={(e)=>this.handleChange('contact1','mobile2',e)}></input>
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
@@ -219,6 +221,7 @@ class Details extends React.Component {
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact1.email}
+                                                            placeholder="Email-ID"
                                                             onChange={(e)=>this.handleChange('contact1','email',e)}></input>
                                                         </li>
                                                     </ul>
@@ -249,6 +252,7 @@ class Details extends React.Component {
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact2.mobile1}
+                                                            placeholder="Mobile"
                                                             onChange={(e)=>this.handleChange('contact2','mobile1',e)}></input>
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
@@ -258,6 +262,7 @@ class Details extends React.Component {
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                         <input type="text" className="form-control" value={this.state.user.contact2.mobile2}
+                                                        placeholder="Mobile"
                                                         onChange={(e)=>this.handleChange('contact2','mobile2',e)}></input>
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
@@ -267,6 +272,7 @@ class Details extends React.Component {
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact2.email}
+                                                            placeholder="Email"
                                                             onChange={(e)=>this.handleChange('contact2','email',e)}></input>
                                                         </li>
                                                     </ul>
@@ -278,17 +284,17 @@ class Details extends React.Component {
                                                                 <strong>Marrital Status: </strong>Married
                                                             </li>
                                                             <li className="nav-item">
-                                                                <strong>ID Card: </strong>DL
+                                                                <strong>ID Card: </strong>L002992293
                                                             </li>
                                                             <li className="nav-item">
-                                                                <strong>Valid Till: </strong> 12/2020
+                                                                <strong>Valid Till: </strong> 08/12/2023
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">
-                                                <button className={"btn btn-red float-right "+(this.state.edit ? '' : 'hide')} onClick={()=>this.setState({edit: false})}>Done</button>
+                                                <button className={"btn white btn-red float-right "+(this.state.edit ? '' : 'hide')} onClick={()=>this.setState({edit: false})}>Done</button>
                                                 {/* <i className={"fa fa-save fa-lg float-right "+(this.state.edit ? '' : 'hide')} onClick={this.save}></i>
                                                 <i className={"fa fa-close fa-lg float-right "+(this.state.edit ? '' : 'hide')} onClick={()=>this.setState({edit: false})}></i> */}
                                             </div>
@@ -304,7 +310,7 @@ class Details extends React.Component {
                                     <div>
                                         <br />
                                         <div className="border m-l-10 m-r-10">
-                                        Proficiat met verjaardag 12/12/2018 (Outgoing - SMS)
+                                        12/12/2018 (Outgoing - SMS) Happy Birthday
                       </div>
                                         <div className="border m-l-10 m-t-10 m-r-10">
                                         10/10/2018 (Brief) VAPZ and IPT Policy
@@ -343,58 +349,6 @@ class Details extends React.Component {
                                                 <h5>Pied Piper</h5>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="card m-t-10 hide">
-                                    <div className="card-body">
-                                        <h5 className="card-title text-red">Existing Contracts</h5>
-                                        <br />
-                                        <div className="row">
-                                            <div className="col-sm-6 p-r-0">
-                                                <div className="card bg-dark-gray">
-                                                    <div className="card-body">
-                                                        <div className="row">
-                                                            <div className="col-lg-3">
-                                                                <i
-                                                                    className="fa fa-money fa-2x"
-                                                                    aria-hidden="true"
-                                                                />
-                                                            </div>
-                                                            <div className="col-lg-9">
-                                                                <h5>45454533-3040</h5>
-                                                                <p className="card-text">Pension Savings</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-sm-6 p-l-0">
-                                                <div className="card bg-gray">
-                                                    <div className="card-body">
-                                                        <div className="row">
-                                                            <div className="col-lg-3">
-                                                                <i
-                                                                    className="fa fa-car fa-2x"
-                                                                    aria-hidden="true"
-                                                                />
-                                                            </div>
-                                                            <div className="col-lg-9">
-                                                                <h5>45454533-3040</h5>
-                                                                <p className="card-text">Car</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <h5 className="card-title text-red">Offers and Proposals</h5>
-                                        <a href="#" className="btn btn-red white full-width">
-                                            Create New
-                      </a>
                                     </div>
                                 </div>
                             </div>
