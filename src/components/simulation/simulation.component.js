@@ -35,7 +35,6 @@ class Simulation extends React.Component {
   render() {
     const { value } = this.state
     return (
-      <div>
         <div className="container-fluid">
           <div className="row ">
             <div className="col-lg-12">
@@ -194,51 +193,49 @@ class Simulation extends React.Component {
                               <input type="number" className="form-control input-range-slider" onChange={()=>{}}
                                 placeholder="0" id="input-demo" value={this.state.value} ></input>
                             </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-10 m-t-20">
-                              <input
-                                type="text"
-                                defaultValue="24,548.56"
-                                className="form-control"
-                                id="myRange"
-
-                              />
+                          </div>  
+                            <div className="row">
+                              <div className="col-lg-3 m-t-20 m-l-10">
+                                <input
+                                  type="number"
+                                  value={parseFloat((24548.67*(this.state.value-14))/100).toFixed(2)}
+                                  className="form-control"
+                                  id="myRange"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-lg-9"></div>
                             </div>
-                            <div className="col-lg-3"></div>
-                          </div>
+                            
                           <br />
                           <div className="row">
-                            <div className="col-lg-6 m-t-10">
+                            <div className="col-lg-6 m-t-10 m-l-10">
                               <h5 className="card-title text-red">
-                                Review VAPZ and IPT
-                        </h5>
+                                Review VAPZ and IPT</h5>
                             </div>
-                          </div>
-                          <div className="row m-t-20">
-                            <div className="col-lg-3">
-                              <span>VAPZ</span>
-                              <br />
-                              <strong className="fiscal-values">200,000</strong>&nbsp;
-                              <div className="col-lg-3">
+                           </div> 
+                            <div className="row m-t-20 m-l-10">
+                              <div className="col-lg-4">
+                                <span>VAPZ</span>
+                                <br />
+                                <strong className="fiscal-values">{(21291.80*(this.state.value-16)/100).toFixed(2) < 0 ? (21291.80*(this.state.value-16/100).toFixed(2)): 3256.87}</strong>&nbsp;
+                                
                                 <div className="input-group-append">
                                   <span className="info-icon-fiscal-first" data-toggle="tooltip" 
                                 data-placement="top" title="VAPZ">ⓘ</span>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col-lg-3 ipt-margin">
-                              <span>IPT</span>
-                              <br />
-                              <strong className="fiscal-values">21,2,19.80</strong>&nbsp;
-                              <div className="col-lg-3">
+                              <div className="col-lg-4">
+                                <span>IPT</span>
+                                <br />
+                                <strong className="fiscal-values">{(21291.80*(this.state.value-16)/100).toFixed(2) < 0 ? '0':(21291.80*(this.state.value-16)/100).toFixed(2)}</strong>&nbsp;
                                 <div className="input-group-append">
                                   <span className="info-icon-fiscal-second" data-toggle="tooltip" 
                                 data-placement="top" title="IPT">ⓘ</span>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          
                           <div className="row">
                             <div className="col-lg-6">
                               <br />
@@ -339,7 +336,7 @@ class Simulation extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      
     )
   }
 }
