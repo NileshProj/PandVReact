@@ -131,7 +131,7 @@ class Header extends React.Component {
                     <div className="row no-gutters">
                       <div className="col-md-4">
                         <img
-                          src={item.imageurl ? item.imageurl : '/images/user.png'}
+                          src={item.imageurl ? item.imageurl : '/images/'+(index+1)+'.jpg'}
                           height={70}
                           width={70}
                           className="profile-pic"

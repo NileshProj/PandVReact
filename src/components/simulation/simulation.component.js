@@ -11,6 +11,7 @@ class Simulation extends React.Component {
       value: 100
     }
     this.myRef = React.createRef();
+    this.myRef1 = React.createRef();
   }
 
   handleOnChange = (value) => {
@@ -275,9 +276,9 @@ class Simulation extends React.Component {
                                 </div>
                               </div>
                             </div>
-                            <div class="form-group row m-t-10">
-                              <label  class="col-lg-8 col-form-label">IPT backservice premium (max 63,590):</label>
-                              <div class="col-lg-4">
+                            <div className="form-group row m-t-10">
+                              <label  className="col-lg-8 col-form-label">IPT backservice premium (max 63,590):</label>
+                              <div className="col-lg-4">
                               <input
                                     type="text"
                                     className="form-control "
@@ -321,7 +322,7 @@ class Simulation extends React.Component {
                 <button className="hide" ref={this.myRef} data-dismiss="modal"></button>
                 <div className="row" style={{ height: '500px'}}>
                   <div className="col-lg-6 bg-light">
-                    <div style={{padding: '20px', paddingTop: '30px'}}>
+                    <div style={{padding: '20px', paddingTop: '20px'}}>
                     <div className="text-center">
                       <img
                         src="/images/user1.png"
@@ -388,10 +389,10 @@ class Simulation extends React.Component {
           <div className="modal fade bd-example-modal-lg1"  tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true" style={{ top: '12%' }}>
             <div className="modal-dialog modal-lg">
               <div className="modal-content">
-                <button className="hide" ref={this.myRef} data-dismiss="modal"></button>
+                <button className="hide" ref={this.myRef1} data-dismiss="modal"></button>
                 <div className="row" style={{ height: '500px'}}>
                   <div className="col-lg-6 bg-light">
-                    <div style={{padding: '20px', paddingTop: '30px'}}>
+                    <div style={{padding: '20px', paddingTop: '20px'}}>
                     <div className="text-center">
                       <img
                         src="/images/user1.png"
@@ -437,10 +438,10 @@ class Simulation extends React.Component {
                     <h5 className="text-red">Would you like to?</h5>
                     <br></br>
                     <div style={{fontSize: '15px', marginBottom: '10px'}}>
-                      <Link style={{color: '#000'}} onClick={()=>{this.myRef.current.click()}}>Continue making changes</Link>
+                      <Link style={{color: '#000'}} onClick={()=>{this.myRef1.current.click()}}>Continue making changes</Link>
                     </div>
                     <div style={{fontSize: '15px', marginBottom: '10px'}}>
-                      <Link to="/profile/details/0" style={{color: '#000'}} onClick={()=>{this.myRef.current.click()}}>Go back to Charl’s Profile</Link>
+                      <Link to="/profile/details/0" style={{color: '#000'}} onClick={()=>{this.myRef1.current.click()}}>Go back to Charl’s Profile</Link>
                     </div>
                     </div>
                   </div>
