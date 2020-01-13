@@ -7,7 +7,7 @@ class SideBar extends React.Component {
         this.state = { active: 1, popup: false};
     }
 
-    
+
     setActive(index) {
         this.setState({ active: index });
     }
@@ -40,7 +40,13 @@ class SideBar extends React.Component {
                                             aria-hidden="true" />
                                     </Link>
                                 </li>
-                                <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 3 ? 'active' : '')}>
+                                <li className="nav-item list-group-item bg-brown p-l-0 ">
+                                    <Link className="nav-link">
+                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                        Compliance
+                                    </Link>
+                                </li>
+                                {/* <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 3 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 3 ? 'active' : '')} onClick={() => this.setState({ active: 3 })} to="/profile/need-analysis">
                                         <span data-feather="file" />
                                         <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
@@ -48,8 +54,8 @@ class SideBar extends React.Component {
                                     <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 3 ? '' : 'hide')}
                                             aria-hidden="true" />
                                     </Link>
-                                </li>
-                                <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 4 ? 'active' : '')}>
+                                </li> */}
+                                {/* <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 4 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 4 ? 'active' : '')} onClick={() => this.setState({ active: 4 })} to="/profile/mifid">
                                         <span data-feather="file" />
                                         <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
@@ -57,8 +63,8 @@ class SideBar extends React.Component {
                                     <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 4 ? '' : 'hide')}
                                             aria-hidden="true" />
                                     </Link>
-                                </li>
-                                <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 5 ? 'active' : '')}>
+                                </li> */}
+                                {/* <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 5 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 5 ? 'active' : '')} onClick={() => this.setState({ active: 5 })} to="/profile/product-selection">
                                         <span data-feather="file" />
                                         <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
@@ -66,7 +72,7 @@ class SideBar extends React.Component {
                                     <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 5 ? '' : 'hide')}
                                             aria-hidden="true" />
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 6 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 6 ? 'active' : '')} onClick={() => this.setState({ active: 6 })} to="/profile/offers">
                                         <span data-feather="file" />
@@ -76,6 +82,12 @@ class SideBar extends React.Component {
                                             aria-hidden="true" />
                                     </Link>
                                 </li>
+                                <li className="nav-item list-group-item bg-brown p-l-0 ">
+                                    <Link className="nav-link">
+                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                        Billing
+                                    </Link>
+                                </li>
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 7 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 7 ? 'active' : '')} onClick={() => this.setState({ active: 7 })} to="/profile/documents">
                                         <span data-feather="file" />
@@ -83,6 +95,18 @@ class SideBar extends React.Component {
                                         Documents
                                     <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 7 ? '' : 'hide')}
                                             aria-hidden="true" />
+                                    </Link>
+                                </li>
+                                <li className="nav-item list-group-item bg-brown p-l-0 ">
+                                    <Link className="nav-link">
+                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                        Communication
+                                    </Link>
+                                </li>
+                                <li className="nav-item list-group-item bg-brown p-l-0 ">
+                                    <Link className="nav-link">
+                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                        Financials
                                     </Link>
                                 </li>
                             </ul>

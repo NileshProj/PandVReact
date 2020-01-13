@@ -58,8 +58,8 @@ class ProductDetails extends React.Component {
 
     render() {
         var data = {
-            label: 'somethingA',
-            values: [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
+            label: 'B21',
+            values: [{x: 'B21', y: 60}, {x: 'B23', y: 40}]
     };
         
         var sort = null;
@@ -152,8 +152,8 @@ class ProductDetails extends React.Component {
                                                 height={400}
                                                 margin={{top: 10, bottom: 10, left: 100, right: 100}}
                                                 sort={sort}
-                                                />
-                                             */}
+                                                /> */}
+                                            
                                             <br></br>
                                             <div>
                                                 <span>

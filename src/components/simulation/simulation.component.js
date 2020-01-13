@@ -289,7 +289,7 @@ class Simulation extends React.Component {
                             <div className="row">
                             <div className="col-lg-6">
                               <br />
-                              <button className="btn btn-red white full-width save-btn">
+                              <button className="btn btn-red white full-width save-btn" data-toggle="modal" data-target=".bd-example-modal-lg1">
                                 Save as Draft
                                 </button>
                             </div>
@@ -322,17 +322,17 @@ class Simulation extends React.Component {
                 <div className="row" style={{ height: '500px'}}>
                   <div className="col-lg-6 bg-light">
                     <div style={{padding: '20px', paddingTop: '30px'}}>
-                    <div>
+                    <div className="text-center">
                       <img
                         src="/images/user1.png"
-                        height={60}
-                        width={60}
+                        height={150}
+                        width={150}
                         className="profile-pic"
                         alt="Name"
                         style={{marginLeft: 0}}
                       />
+                      <h5 className="text-red ">80% Simulation #173753 created!</h5>
                     </div>
-                    <h5 className="text-red ">80% Simulation #173753 created!</h5>
                     <br></br>
                     <h4>Summary</h4>
                     <div className="row" stylw={{fontSize: '15px'}}>
@@ -385,6 +385,71 @@ class Simulation extends React.Component {
               </div>
             </div>
           </div>
+          <div className="modal fade bd-example-modal-lg1"  tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true" style={{ top: '12%' }}>
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content">
+                <button className="hide" ref={this.myRef} data-dismiss="modal"></button>
+                <div className="row" style={{ height: '500px'}}>
+                  <div className="col-lg-6 bg-light">
+                    <div style={{padding: '20px', paddingTop: '30px'}}>
+                    <div className="text-center">
+                      <img
+                        src="/images/user1.png"
+                        height={150}
+                        width={150}
+                        className="profile-pic"
+                        alt="Name"
+                        style={{marginLeft: 0}}
+                      />
+                      <h5 className="text-red ">80% Simulation #173753 Draft was saved!</h5>
+                    </div>
+                    <br></br>
+                    <h4>Summary</h4>
+                    <div className="row" stylw={{fontSize: '15px'}}>
+                      <div className="col-lg-7">
+                        <div>Estimated Legel Pension:</div>
+                        <div>Fiscal Optimization:</div>
+                        <div>VAPZ:</div>
+                        <div>IPT: </div>
+                      </div>
+                      <div className="col-lg-5">
+                        <div>€ 42,400</div>
+                        <div>€ 24,548.56 (95%)</div>
+                        <div>€ 200,000</div>
+                        <div>€ 21,291.80</div>
+                      </div>
+                    </div>
+                    <br></br>
+                    <div className="row hide">
+                      <div className="col-lg-6">
+                        <i className="fa fa-print fa-2x"></i>
+                        <h5>Print Simulation</h5>
+                      </div>
+                      <div className="col-lg-6">
+                        <i className="fa fa-envelope-o fa-2x"></i>
+                        <h5>Email Simulation</h5>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="m-t-50 m-l-50">
+                    <h5 className="text-red">Would you like to?</h5>
+                    <br></br>
+                    <div style={{fontSize: '15px', marginBottom: '10px'}}>
+                      <Link style={{color: '#000'}} onClick={()=>{this.myRef.current.click()}}>Continue making changes</Link>
+                    </div>
+                    <div style={{fontSize: '15px', marginBottom: '10px'}}>
+                      <Link to="/profile/details/0" style={{color: '#000'}} onClick={()=>{this.myRef.current.click()}}>Go back to Charl’s Profile</Link>
+                    </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        
         </div>
       
     )
