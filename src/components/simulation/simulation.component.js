@@ -199,7 +199,7 @@ class Simulation extends React.Component {
                                 <input
                                   type="number"
                                   value={parseFloat((24548.67*(this.state.value-14))/100).toFixed(2)}
-                                  className="form-control"
+                                  className="form-control range-input"
                                   id="myRange"
                                   disabled
                                 />
