@@ -7,6 +7,7 @@ class SideBar extends React.Component {
         this.state = { active: 1, popup: false};
     }
 
+    
     setActive(index) {
         this.setState({ active: index });
     }

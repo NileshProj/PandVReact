@@ -91,8 +91,9 @@ class MIFID extends React.Component {
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 3.1 ? 'bg-light' : ((this.state.a3 === 1 || this.state.a3 === 2) ? '':'hide'))} onClick={() => this.setActive(3.1)}>
                                                     <div className="row">
+                                                        <div className="col-lg-1"></div>
                                                         <div className="col-lg-1 p-r-0"><strong>3.1)</strong></div>
-                                                        <div className="col-lg-11 p-l-0">  What is the approximate value of your Property?</div>
+                                                        <div className="col-lg-10 p-l-0">  What is the approximate value of your Property?</div>
                                                     </div>
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 4 ? 'bg-light' : '')} onClick={() => this.setActive(4)}>

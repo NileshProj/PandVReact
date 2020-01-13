@@ -517,3 +517,6 @@ body {
         .notes-item:hover {
           background-color: #e4dddd;
         }
+        .bold {
+          font-weight: 900;
+        }

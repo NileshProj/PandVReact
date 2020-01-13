@@ -14,6 +14,9 @@ class Profile extends React.Component {
         super(props);
         this.state = {};
     }
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     render() {
         console.log(this.props);
         return (

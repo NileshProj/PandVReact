@@ -117,7 +117,7 @@ class Simulation extends React.Component {
                                 <div className="form-group">
                                   <label className="label-color" htmlFor="one">Employment Date</label>
                                   <input
-                                    type="date"
+                                    type="text"
                                     className="form-control "
                                     defaultValue="23/05/2019"
                                     id="one"
@@ -129,6 +129,26 @@ class Simulation extends React.Component {
                                 <div className="input-group-append">
                                   <span className="info-icon-simulation" data-toggle="tooltip" 
                                 data-placement="top" title="Employment Date">ⓘ</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col-lg-9 p-r-0">
+                                <div className="form-group">
+                                  <label className="label-color" htmlFor="one">Career Start Date</label>
+                                  <input
+                                    type="text"
+                                    className="form-control "
+                                    defaultValue="23/05/01/03/2006"
+                                    id="one"
+
+                                  />
+                                </div>
+                              </div>
+                              <div className="col-lg-3">
+                                <div className="input-group-append">
+                                  <span className="info-icon-simulation" data-toggle="tooltip" 
+                                data-placement="top" title="Career Start Date">ⓘ</span>
                                 </div>
                               </div>
                             </div>
@@ -149,6 +169,26 @@ class Simulation extends React.Component {
                                 <div className="input-group-append">
                                   <span className="info-icon-simulation" data-toggle="tooltip" 
                                 data-placement="top" title="Estimated Legal Pension">ⓘ</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col-lg-9 p-r-0">
+                                <div className="form-group">
+                                  <label className="label-color" htmlFor="one">Capital from other contracts</label>
+                                  <input
+                                    type="text"
+                                    className="form-control "
+                                    defaultValue="58,500"
+                                    id="one"
+
+                                  />
+                                </div>
+                              </div>
+                              <div className="col-lg-3">
+                                <div className="input-group-append">
+                                  <span className="info-icon-simulation" data-toggle="tooltip" 
+                                data-placement="top" title="Employment Date">ⓘ</span>
                                 </div>
                               </div>
                             </div>
@@ -179,7 +219,7 @@ class Simulation extends React.Component {
                         <div className="card-body simulation-second-column" style={{ height: '100%' }}>
                           <h5 className="card-title text-red">Fiscal Optimizer</h5>
                           <div className="row">
-                            <div className="col-lg-10 m-t-10">
+                            <div className="col-lg-9 m-t-10">
                               <Slider
                                 min={0}
                                 max={100}
@@ -189,7 +229,7 @@ class Simulation extends React.Component {
                                 onChangeComplete={this.handleChangeComplete}
                               />
                             </div>
-                            <div className="col-lg-2 p-l-0">
+                            <div className="col-lg-3">
                               <input type="number" className="form-control input-range-slider" onChange={()=>{}}
                                 placeholder="0" id="input-demo" value={this.state.value} ></input>
                             </div>
@@ -235,8 +275,18 @@ class Simulation extends React.Component {
                                 </div>
                               </div>
                             </div>
-                          
-                          <div className="row">
+                            <div class="form-group row m-t-10">
+                              <label  class="col-lg-8 col-form-label">IPT backservice premium (max 63,590):</label>
+                              <div class="col-lg-4">
+                              <input
+                                    type="text"
+                                    className="form-control "
+                                    defaultValue=""
+                                    placeholder="Amount"
+                                  />
+                              </div>
+                            </div>
+                            <div className="row">
                             <div className="col-lg-6">
                               <br />
                               <button className="btn btn-red white full-width save-btn">

@@ -85,7 +85,7 @@ class Details extends React.Component {
     }
 
     componentDidMount() {
-        
+        window.scrollTo(0, 0)
     }
     starProfile() {
         this.setState({stared : true});

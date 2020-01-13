@@ -30,6 +30,10 @@ class Home extends React.Component {
         ]
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     newNote () {
         this.setState({newNote: true});
     }
@@ -101,7 +105,7 @@ class Home extends React.Component {
                     <br />
                     <div className="row">
                         <div className="col-lg-12">
-                            <h5 className="text-red">My Tasks (5)</h5>
+                            <h5 className="text-red">My Tasks ({this.state.notes.length})</h5>
                             <i className="fa fa-plus-circle float-right fa-2x top text-red m-r-10"
                                 aria-hidden="true" onClick={this.newNote}
                             />
