@@ -77,9 +77,9 @@ class Simulation extends React.Component {
                                 <div className="form-group">
                                   <label className="label-color" htmlFor="one">Yearly Net Salary</label>
                                   <input
-                                    type="text"
+                                    type="number"
                                     className="form-control "
-                                    defaultValue="55,000"
+                                    defaultValue="55000"
                                     id="one"
 
                                   />
@@ -97,9 +97,9 @@ class Simulation extends React.Component {
                                 <div className="form-group">
                                   <label className="label-color" htmlFor="one">Yearly Gross Salary</label>
                                   <input
-                                    type="text"
+                                    type="number"
                                     className="form-control "
-                                    defaultValue="200,000"
+                                    defaultValue="200000"
                                     id="one"
 
                                   />
@@ -157,9 +157,9 @@ class Simulation extends React.Component {
                                 <div className="form-group">
                                   <label className="label-color" htmlFor="one">Estimated Legal Pension</label>
                                   <input
-                                    type="text"
+                                    type="number"
                                     className="form-control "
-                                    defaultValue="42,400"
+                                    defaultValue="42400"
                                     id="one"
 
                                   />
@@ -239,7 +239,7 @@ class Simulation extends React.Component {
                                 <input
                                   type="number"
                                   value={parseFloat((24548.67*(this.state.value-14))/100).toFixed(2)}
-                                  className="form-control"
+                                  className="form-control range-input"
                                   id="myRange"
                                   disabled
                                 />
