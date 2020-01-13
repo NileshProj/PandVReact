@@ -202,8 +202,13 @@ class MIFID extends React.Component {
                                         <div style={{ fontSize: '15px' }}>
                                             You can get the questionnaire digitally signed off now, or send it as a part of the offer later.</div>
                                         <br></br>
-                                        <div>
-                                            <textarea rows="3" cols="50" placeholder="Your Signature"></textarea>
+                                        <div className="row">
+                                            <div className="col-lg-6">
+                                                <textarea rows="3" cols="50" placeholder="Your Signature"></textarea>
+                                            </div>
+                                            <div className="col-lg-6">
+                                                <textarea rows="3" cols="50" placeholder="Intermediary Signature"></textarea>
+                                            </div>
                                         </div>
                                         <br></br>
                                         <div>

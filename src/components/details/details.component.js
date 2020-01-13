@@ -123,7 +123,7 @@ class Details extends React.Component {
                             aria-controls="nav-home"
                             aria-selected="true"
                         >
-                            Charl Robert
+                            {this.state.data[id].name}
                         </a>
                         <div className="btn-group dropright">
                             <i
@@ -217,7 +217,7 @@ class Details extends React.Component {
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
                                                             <i className="fa fa-envelope-o m-r-5"
                                                                 aria-hidden="true"
-                                                            />{this.state.user.contact1.email ? this.state.user.contact1.email : 'not found'}
+                                                            />{this.state.user.contact1.email ? this.state.user.contact1.email : <span className="text-red">not found</span>}
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact1.email}
@@ -225,7 +225,6 @@ class Details extends React.Component {
                                                             onChange={(e)=>this.handleChange('contact1','email',e)}></input>
                                                         </li>
                                                     </ul>
-                                                    <br />
                                                     <br />
                                                     <div>
                                                         <ul className="nav flex-column mb-2">
@@ -277,7 +276,6 @@ class Details extends React.Component {
                                                         </li>
                                                     </ul>
                                                     <br />
-                                                    <br />
                                                     <div>
                                                         <ul className="nav flex-column mb-2">
                                                             <li className="nav-item">
@@ -308,11 +306,11 @@ class Details extends React.Component {
                                         Recent Communication
                     </h5>
                                     <div className="m-t-10">
-                                        <div className="border m-l-10 m-r-10">
-                                        12/12/2018 (Outgoing - SMS) Happy Birthday
+                                        <div className="border m-l-10 m-r-10 bg-light">
+                                        12/01/2020 (Outgoing - SMS) Happy Birthday
                       </div>
-                                        <div className="border m-l-10 m-t-10 m-r-10">
-                                        10/10/2018 (Brief) VAPZ and IPT Policy
+                                        <div className="border m-l-10 m-t-10 m-r-10 bg-light">
+                                        10/12/2019 (Brief) VAPZ and IPT Policy
                       </div>
                                     </div>
                                 </div>
@@ -333,7 +331,7 @@ class Details extends React.Component {
                             <br />
                                                     Julia Robert
                             <br />
-                                                    Stephanie Robert
+                                                    Seb Robert
                           </h5>
                                             </div>
                                         </div>
@@ -354,6 +352,7 @@ class Details extends React.Component {
                         </div>
                     </div>
                 </div>
+                <br></br>
             </div>
             
         )

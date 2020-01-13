@@ -13,14 +13,17 @@ class Simulation extends React.Component {
       vapz: 3256.87,
       ipt: 21291.80,
       iptbackservice: 0,
+      onepercentage: 0,
+      vapzpopup: false
     }
     this.myRef = React.createRef();
     this.myRef1 = React.createRef();
   }
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
-      fiscalinput: this.state.vapz + this.state.ipt + this.state.iptbackservice
-    })
+      fiscalinput: this.state.vapz + this.state.ipt 
+    });
+    this.setState({onepercentage: parseFloat((this.state.vapz + this.state.ipt)/100).toFixed(2)});
   }
   handleOnChange = (value) => {
     this.setState({
@@ -46,14 +49,12 @@ class Simulation extends React.Component {
     this.setState({
       iptbackservice: value,
     }, () => this.setState({
-      fiscalinput: Number(this.state.vapz) + Number(this.state.ipt) + Number(this.state.iptbackservice)
+      fiscalinput: Number(this.state.vapz) + Number(this.state.ipt)
     }));
   }
 
   render() {
     const { value } = this.state;
-    console.log("@@@@", this.state);
-
     return (
       <div className="container-fluid">
         <div className="row ">
@@ -279,12 +280,23 @@ class Simulation extends React.Component {
                           <div className="col-lg-4">
                             <span>VAPZ</span>
                             <br />
-                            <strong className="fiscal-values">{(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? (this.state.vapz - this.state.value) : this.state.vapz}</strong>&nbsp;
+                            <strong className="fiscal-values">
+                            {this.state.ipt-(this.state.onepercentage*(100-this.state.value)) < 0 ? 
+                            ((this.state.vapz + (this.state.ipt-(this.state.onepercentage*(100-this.state.value)))).toFixed(2) < 0 ? '0':
+                            (this.state.vapz + (this.state.ipt-(this.state.onepercentage*(100-this.state.value)))).toFixed(2))
+                            : this.state.vapz}
+                              </strong>&nbsp;
                                 {/* <strong className="fiscal-values">{this.state.vapz}</strong>&nbsp; */}
 
                             <div className="input-group-append">
-                              <span className="info-icon-fiscal-first" data-toggle="tooltip"
-                                data-placement="top" title="VAPZ">ⓘ</span>
+                              <span className="info-icon-fiscal-first"
+                                onMouseEnter={()=>this.setState({vapzpopup: true})}
+                                onMouseLeave={()=>this.setState({vapzpopup: false})}>ⓘ</span>
+                            </div>
+                            <div className={"border "+(this.state.vapzpopup ? '':'hide')} style={{position: 'absolute', padding: '20px', backgroundColor: '#fff', zIndex: 1, width: '400px',}}>
+                              <div><strong>What is the maximum deductible VAPZ premium?</strong></div>
+                              <div className="m-t-10">For a regular VAPZ, a self-employed person may deposit 8.17% of his net taxable income, 
+                                but for 2019 a maximum of 3,256.87 euros.<br></br>The maximum net taxable income for an ordinary VAPZ is 39,863.72 euros.</div>
                             </div>
                           </div>
                           <div className="col-lg-4">
@@ -292,7 +304,8 @@ class Simulation extends React.Component {
                             <br />
                             {/* <strong className="fiscal-values">{ this.state.ipt}</strong>&nbsp; */}
 
-                            <strong className="fiscal-values">{(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? '0' : (this.state.ipt * (this.state.value) / 100).toFixed(2)}</strong>&nbsp;
+                          <strong className="fiscal-values">{this.state.ipt-(this.state.onepercentage*(100-this.state.value)) < 0 ? 
+                          "0": (this.state.ipt-(this.state.onepercentage*(100-this.state.value))).toFixed(2)}</strong>&nbsp;
                                 <div className="input-group-append">
                               <span className="info-icon-fiscal-second" data-toggle="tooltip"
                                 data-placement="top" title="IPT">ⓘ</span>
@@ -368,7 +381,7 @@ class Simulation extends React.Component {
                       </div>
                       <div className="col-lg-5">
                         <div>€ 42,400</div>
-                        <div>€ {parseFloat(this.state.fiscalinput * (this.state.value) / 100).toFixed(2)} (95%)</div>
+                        <div>€ {parseFloat(this.state.fiscalinput * (this.state.value) / 100).toFixed(2)} ({this.state.value}%)</div>
                         <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? (this.state.vapz - this.state.value) : this.state.vapz}</div>
                         <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? '0' : (this.state.ipt * (this.state.value) / 100).toFixed(2)}</div>
                       </div>
@@ -438,7 +451,7 @@ class Simulation extends React.Component {
                       </div>
                       <div className="col-lg-5">
                         <div>€ 42,400</div>
-                        <div>€ {parseFloat(this.state.fiscalinput * (this.state.value) / 100).toFixed(2)} (95%)</div>
+                        <div>€ {parseFloat(this.state.fiscalinput * (this.state.value) / 100).toFixed(2)} ({this.state.value}%)</div>
                         <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? (this.state.vapz - this.state.value) : this.state.vapz}</div>
                         <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? '0' : (this.state.ipt * (this.state.value) / 100).toFixed(2)}</div>
                       </div>

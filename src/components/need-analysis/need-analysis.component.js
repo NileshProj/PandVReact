@@ -82,7 +82,7 @@ class NeedAnalysis extends React.Component {
                                                                 />
                                                             </div>
                                                         </div>
-                                                        <div className="col-lg-3 m-t-20">
+                                                        <div className="col-lg-3 m-t-30">
                                                         <span className="info-icon-simulation" data-toggle="tooltip" 
                                 data-placement="top" title="Pension Capital">ⓘ</span>
                                                         </div>
@@ -99,7 +99,7 @@ class NeedAnalysis extends React.Component {
                                                                 />
                                                             </div>
                                                         </div>
-                                                        <div className="col-lg-3 m-t-20">
+                                                        <div className="col-lg-3 m-t-30">
                                                         <span className="info-icon-simulation" data-toggle="tooltip" 
                                 data-placement="top" title="Death Capital">ⓘ</span>
                                                         </div>

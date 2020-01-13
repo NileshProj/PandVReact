@@ -31,7 +31,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }
 
     newNote () {
@@ -40,7 +40,7 @@ class Home extends React.Component {
 
     saveNote() {
         let notes = this.state.notes;
-        notes.push({title: this.state.note});
+        notes.unshift({title: this.state.note});
         this.setState({notes: notes, newNote: false});
     }
 
@@ -112,7 +112,7 @@ class Home extends React.Component {
                             <div className="m-t-20">
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="border" style={{ padding: 20, height: 222, overflow: 'auto' }}>
+                                        <div className="border box-shadow" style={{ padding: 20, height: 222, overflow: 'auto' }}>
                                             <div className={"box "+(this.state.newNote ? '': 'hide')}>
                                                     <div className="row">
                                                         <input type="text" className="form-control col-lg-6" onChange={(e)=>this.updateNote(e)} placeholder="New Note.."></input>
@@ -133,8 +133,8 @@ class Home extends React.Component {
                                                     <i className={"fa fa-save fa-lg text-red m-t-10 m-l-10 "+(this.state.edit === index ? '':'hide')} onClick={()=>this.setState({edit:-1})}></i>
                                                         <div style={{margin: '12px 10px 10px 10px'}} className={(this.state.edit === index ? 'hide': '')}>
                                                             <i className={"fa fa-check fa-lg m-r-10 "+(note.checked ? '': 'hide')} />
-                                                            <i className="fa fa-edit fa-lg m-r-10" onClick={()=>this.editNote(index)}/>
-                                                            <i className="fa fa-trash fa-lg float-right" onClick={()=>this.deleteNote(index)}/>
+                                                            <i className="fa fa-trash fa-lg float-right m-t-5" onClick={()=>this.deleteNote(index)}/>
+                                                            <i className="fa fa-edit fa-lg m-r-10 float-right m-t-5 m-r-10" onClick={()=>this.editNote(index)}/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,22 +216,80 @@ class Home extends React.Component {
             </div>
             <br />
             <h5 className="text-red">My Follow Ups</h5>
-            <br />
+            <a
+                        className="border m-b-10 float-left"
+                        href="#carouselExampleControls"
+                        role="button"
+                        data-slide="prev"
+                    >
+                        <i className="fa fa-chevron-left fa-lg black" />
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a
+                        className="border m-b-10 float-right"
+                        href="#carouselExampleControls"
+                        role="button"
+                        data-slide="next"
+                    >
+                        <i className="fa fa-chevron-right fa-lg black" />
+                        <span className="sr-only">Next</span>
+                    </a>
             <div>
                 <div
                     id="carouselExampleControls"
                     className="carousel slide"
-                    data-ride="carousel"
+                    data-ride="false"
                 >
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
+                        <div className="carousel-item active" >
                             <div className="row">
+                                <div className="col-lg-4 hide">
+                                    <div className="card box-shadow">
+                                        <div className="row no-gutters">
+                                            <div className="col-md-5">
+                                                <img
+                                                    src="images/user1.png"
+                                                    height={100}
+                                                    width={100}
+                                                    className="profile-pic"
+                                                    alt="Name"
+                                                />
+                                            </div>
+                                            <div className="col-md-7 m-t-50">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">Charl Robert</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-lg-1" />
+                                            <div className="col-lg-8">
+                                                <br />
+                                                <ul className="nav flex-column mb-2">
+                                                    <li className="nav-item">
+                                                    Offer <strong>#173753</strong><br></br> (First follow-up)</li>
+                                                    <li className="nav-item">
+                                                        <strong>Due Date: </strong>14/01/2020
+                    </li>
+                                                </ul>
+                                                <br />
+                                            </div>
+                                            <div className="col-lg-3" />
+                                            <div className="col-lg-12">
+                                                <br></br>
+                                                <button className="btn btn-red white full-width">
+                                                    View Offer Details
+                                                </button>        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="col-lg-4">
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/1.jpg"
+                                                    src="images/20.jpg"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -261,12 +319,12 @@ class Home extends React.Component {
                                             <div className="col-lg-12">
                                                 <br></br>
                                                 <button className="btn btn-red white full-width">
-                                                    View Offer Details
-                                                </button>        
+                                                    View Offer Details</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div className="col-lg-4">
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
@@ -360,7 +418,7 @@ class Home extends React.Component {
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/4.jpg"
+                                                    src="images/20.jpg"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -481,13 +539,13 @@ class Home extends React.Component {
                             </div>    
                         </div>
                         <div className="carousel-item">
-                        <div className="row">
+                            <div className="row">
                                 <div className="col-lg-4">
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
                                                 <img
-                                                    src="images/7.jpg"
+                                                    src="images/20.jpg"
                                                     height={100}
                                                     width={100}
                                                     className="profile-pic"
@@ -608,24 +666,6 @@ class Home extends React.Component {
                             </div>    
                         </div>
                     </div>
-                    <a
-                        className="carousel-control-prev"
-                        href="#carouselExampleControls"
-                        role="button"
-                        data-slide="prev"
-                    >
-                        <i className="fa fa-chevron-left fa-2x" />
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a
-                        className="carousel-control-next"
-                        href="#carouselExampleControls"
-                        role="button"
-                        data-slide="next"
-                    >
-                        <i className="fa fa-chevron-right fa-2x" />
-                        <span className="sr-only">Next</span>
-                    </a>
                 </div>
             <br></br>
             </div>

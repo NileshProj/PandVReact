@@ -10,7 +10,7 @@ class Offers extends React.Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0)
-  }
+}
   render(){
     return (
       <div>
@@ -65,7 +65,7 @@ class Offers extends React.Component {
                         <div className="card-body">
                           <h5 className="card-title text-red">Offer Details</h5>
                           <div className="card">
-                            <div className="card-body">
+                            <div className="m-t-10">
                               <p className="offer-detail-card-heading">
                                 Top-Hat Plus Plan (IPT)
                         </p>
@@ -87,15 +87,15 @@ class Offers extends React.Component {
                                   <br />
                                 </div>
                                 <div className="col-lg-12">
-                                  <a href="#" className="btn btn-red white full-width-row">
+                                  <button className="btn btn-red white full-width">
                                     Details
-                            </a>
+                            </button>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div className="card capi-card">
-                            <div className="card-body">
+                            <div className="m-t-10">
                               <p className="offer-detail-card-heading">Capi 21 VAPZ</p>
                               <div className="row">
                                 <div className="col-lg-1" />
@@ -109,9 +109,9 @@ class Offers extends React.Component {
                                   <br />
                                 </div>
                                 <div className="col-lg-12">
-                                  <a href="#" className="btn btn-red white full-width-row">
+                                  <button className="btn btn-red white full-width">
                                     Details
-                            </a>
+                            </button>
                                 </div>
                               </div>
                             </div>
@@ -120,6 +120,38 @@ class Offers extends React.Component {
                       </div>
                       <div className="column">
                         <div className="card-body">
+                          <div className="row">
+                            <div className="column">
+                              <strong>
+                                <p className="policyholder">Policyholder</p>
+                              </strong>
+                            </div>
+                            <div className="column">
+                              <p className="policyholder-value">Pied Piper</p>
+                            </div>
+                          </div>
+                          <div className="row policyholder-row">
+                            <div className="column">
+                              <strong>
+                                <p className="policyholder">Insured</p>
+                              </strong>
+                            </div>
+                            <div className="column">
+                              <p className="policyholder-value">Charl Robert</p>
+                            </div>
+                          </div>
+                          <div className="row policyholder-row">
+                            <div className="column">
+                              <strong>
+                                <p className="policyholder">Clauses</p>
+                              </strong>
+                            </div>
+                            <div className="column">
+                              <p className="policyholder-value">Life Clause<br/>Death Clause</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="card-body capi-details offer-second-row">
                           <div className="row">
                             <div className="column">
                               <strong>
@@ -148,38 +180,6 @@ class Offers extends React.Component {
                             </div>
                             <div className="column">
                               <p className="policyholder-value">Life Clause</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="card-body capi-details offer-second-row">
-                          <div className="row">
-                            <div className="column">
-                              <strong>
-                                <p className="policyholder">Policyholder</p>
-                              </strong>
-                            </div>
-                            <div className="column">
-                              <p className="policyholder-value">Maxime Jacquet</p>
-                            </div>
-                          </div>
-                          <div className="row policyholder-row">
-                            <div className="column">
-                              <strong>
-                                <p className="policyholder">Insured</p>
-                              </strong>
-                            </div>
-                            <div className="column">
-                              <p className="policyholder-value">Charl Robert</p>
-                            </div>
-                          </div>
-                          <div className="row policyholder-row">
-                            <div className="column">
-                              <strong>
-                                <p className="policyholder">Clauses</p>
-                              </strong>
-                            </div>
-                            <div className="column">
-                              <p className="policyholder-value">Life Clause<br/>Death Clause</p>
                             </div>
                           </div>
                         </div>
@@ -298,11 +298,16 @@ class Offers extends React.Component {
                         </div>
                       </div>
                     </div>
-  
-                    <div className="col-lg-12">
-                      <button type="button" className="btn btn-red white full-width-confirm" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <div className="row">
+                    <div className="col-lg-5">
+                      <button type="button" className="btn btn-red white full-width" 
+                      onClick={()=>{
+                        sessionStorage.setItem('currentUser', 'Charl Robert')
+                      }}
+                      data-toggle="modal" data-target=".bd-example-modal-lg">
                         Send Offer
                       </button>
+                    </div>
                     </div>
                   </form>
                 </div>
@@ -331,12 +336,12 @@ class Offers extends React.Component {
                           alt="Name"
                           style={{marginLeft: 0}}
                         />
-                      <h5 className="text-red ">Offer # 173753 is created!</h5>  
+                      <h5 className="text-red ">Offer #173753 is created!</h5>  
                       </div>
                       <br></br>
                       <div className="row" stylw={{fontSize: '15px'}}>
                         <div className="col-lg-12">
-                          <div>The Offer document and MiFID questionnaire have been email to Charl for review.</div>
+                          <div>The Offer document and MiFID questionnaire have been emailed to Charl for review and signature.</div>
                         
                         </div>
                       </div>

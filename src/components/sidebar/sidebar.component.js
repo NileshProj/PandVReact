@@ -21,8 +21,7 @@ class SideBar extends React.Component {
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 1 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 1 ? 'active' : '')} onClick={() => this.setState({ active: 1 })} to="/profile/details/0">
                                         <span data-feather="home" />
-                                        <i className="fa fa-user-circle fa-lg m-r-10"
-                                            aria-hidden="true" />
+                                        <img src="/images/profile.png" className="img-icon"></img>
                                         Profile <span className="sr-only">(current)</span>
                                         <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 1 ? '' : 'hide')}
                                             aria-hidden="true" />
@@ -31,20 +30,20 @@ class SideBar extends React.Component {
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 2 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 2 ? 'active' : '')} 
                                     onMouseEnter={()=>this.setState({popup: true})}
-                                    // onMouseLeave={()=>this.setState({popup: false})}
-                                    onClick={() => this.setState({ active: 2 })} to="/profile/simulation">
+                                    onMouseLeave={()=>this.setState({popup: false})}
+                                    onClick={() => this.setState({ active: 2, popup: false })} to="/profile/simulation">
                                         <span data-feather="file" />
-                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                        <img src="/images/simulations.png" className="img-icon"></img>
                                         Simulations
-                                    <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 2 ? '' : 'hide')}
-                                            aria-hidden="true" />
+                                    {/* <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 2 ? '' : 'hide')}
+                                            aria-hidden="true" /> */}
                                     </Link>
                                 </li>
                                 <li className="nav-item list-group-item bg-brown p-l-0 ">
-                                    <Link className="nav-link">
-                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                    <a className="nav-link" >
+                                        <img src="/images/compliances.png" className="img-icon"></img>
                                         Compliance
-                                    </Link>
+                                    </a>
                                 </li>
                                 {/* <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 3 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 3 ? 'active' : '')} onClick={() => this.setState({ active: 3 })} to="/profile/need-analysis">
@@ -76,38 +75,38 @@ class SideBar extends React.Component {
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 6 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 6 ? 'active' : '')} onClick={() => this.setState({ active: 6 })} to="/profile/offers">
                                         <span data-feather="file" />
-                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                        <img src="/images/offers.png" className="img-icon"></img>
                                         Offers &amp; Proposals
-                                    <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 6 ? '' : 'hide')}
-                                            aria-hidden="true" />
+                                    {/* <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 6 ? '' : 'hide')}
+                                            aria-hidden="true" /> */}
                                     </Link>
                                 </li>
                                 <li className="nav-item list-group-item bg-brown p-l-0 ">
-                                    <Link className="nav-link">
-                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                    <a className="nav-link">
+                                        <img src="/images/billing.png" className="img-icon"></img>
                                         Billing
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 7 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 7 ? 'active' : '')} onClick={() => this.setState({ active: 7 })} to="/profile/documents">
                                         <span data-feather="file" />
-                                        <i className="fa fa-dashboard fa-lg m-r-10 " aria-hidden="true" />
+                                        <img src="/images/documents.png" className="img-icon"></img>
                                         Documents
-                                    <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 7 ? '' : 'hide')}
-                                            aria-hidden="true" />
+                                    {/* <i className={"fa fa-arrow-left  white m-t-5 fa-lg float-right " + (this.state.active === 7 ? '' : 'hide')}
+                                            aria-hidden="true" /> */}
                                     </Link>
                                 </li>
                                 <li className="nav-item list-group-item bg-brown p-l-0 ">
-                                    <Link className="nav-link">
-                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                    <a className="nav-link">
+                                        <img src="/images/communications.png" className="img-icon"></img>
                                         Communication
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li className="nav-item list-group-item bg-brown p-l-0 ">
-                                    <Link className="nav-link">
-                                        <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
+                                    <a className="nav-link">
+                                        <img src="/images/financial.png" className="img-icon"></img>
                                         Financials
-                                    </Link>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -169,12 +168,6 @@ class SideBar extends React.Component {
                                     <h5 className="text-red">Recent Simulations</h5>
                                     <div className="m-t-10">
                                         <span>Charl Robert #281475</span>
-                                    </div>
-                                    <div className="m-t-10">
-                                        <span>Lisa Nyugen #173164</span>
-                                    </div>
-                                    <div className="m-t-10">
-                                        <span>Amanda Degrref #154724</span>
                                     </div>
                                 </div>
                                 </div>

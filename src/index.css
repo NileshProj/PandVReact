@@ -257,7 +257,7 @@ body {
 }
 
 .tab-name {
-  width: auto;
+  width: 300px;
   border-bottom: 2px solid red !important;
   color: #000;
   text-transform: uppercase;
@@ -444,14 +444,14 @@ max-width: 98%;
   margin-left: 1%;
 }
 .info-icon-firstrow {
-  font-size: 37px;
-  margin-top: -14%;
-  margin-left: 105%;
+  font-size: 26px;
+  margin-top: -11%;
+  margin-left: 103%;
 }
 .info-icon-secondrow {
-  font-size: 37px;
-  margin-top: -14%;
-  margin-left: 105%;
+  font-size: 26px;
+  margin-top: -11%;
+  margin-left: 103%;
 }
 .capi-card{
   margin-top:15px;
@@ -510,8 +510,8 @@ max-width: 98%;
   margin-top:8%;
 }
 .info-icon-simulation {
-  font-size: 37px;
-  margin-top: 19%;
+  font-size: 25px;
+  margin-top: 29%;
   margin-left: -5%;
 }
 .label-color {
@@ -528,14 +528,14 @@ max-width: 98%;
 
 }
 .info-icon-fiscal-first {
-  font-size: 37px;
-  margin-top:-45px;
-  margin-left: 85px;
+  font-size: 26px;
+    margin-top: -35px;
+    margin-left: 85px;
 }
 .info-icon-fiscal-second {
-  font-size: 37px;
-  margin-top:-45px;
-  margin-left: 85px;
+  font-size: 26px;
+    margin-top: -35px;
+    margin-left: 85px;
 }
 .input-range-slider{
   margin-top: 21%;

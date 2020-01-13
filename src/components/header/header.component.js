@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { active: 1, data: [{}], filterData: [], searchText: '' };
+    this.state = { active: 1, data: [{}], filterData: [], searchText: '', notification: false, count: 2 ,};
     this.setActive = this.setActive.bind(this);
     this.search = this.search.bind(this);
     this.state.data = [
@@ -67,17 +67,21 @@ class Header extends React.Component {
     ];
   }
 
+  componentDidMount() {
+    
+  }
+
   setActive(index) {
     this.setState({ active: index, searchText: '' });
   }
 
   search() {
     let temp = this.state.data.filter(item => item.name.toLowerCase().includes(this.state.searchText.toLowerCase()));
-    this.setState({ filterData: temp });
+    this.setState({ filterData: temp, notification: false });
   }
 
   updateText(e) {
-    this.setState({ searchText: e.target.value });
+    this.setState({ searchText: e.target.value , notification: false});
   }
 
 
@@ -91,7 +95,7 @@ class Header extends React.Component {
             aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse m-l-250" id="navbarCollapse">
+          <div className="collapse navbar-collapse m-l-50" id="navbarCollapse">
             <ul className="navbar-nav mr-auto">
               <li className={"nav-item " + (this.state.active === 1 ? 'active' : '')}>
                 <Link className="nav-link white capital" to="/" onClick={() => this.setActive(1)}>Portfolio</Link>
@@ -105,8 +109,9 @@ class Header extends React.Component {
                 onChange={(e) => this.updateText(e)} onKeyUp={this.search} aria-label="Search" />
               <i className="fa fa-search fa-lg search-icon" aria-hidden="true" onClick={this.search} />
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item  m-r-50 ">
+                <li className="nav-item  m-r-30 " onClick={()=>this.setState({notification: !this.state.notification, count: 0})}>
                   <i className="fa fa-bell fa-lg m-t-10 white" aria-hidden="true" />
+                  <div className={"count text-center "+(this.state.count === 0 ? 'hide': '')}>3</div>
                 </li>
                 <li className="nav-item border-left p-l-10">
                   <span>
@@ -121,6 +126,23 @@ class Header extends React.Component {
           </div>
         </nav>
 
+        <div className={"notification border box-shadow "+(this.state.notification ? '':'hide')} onMouseLeave={()=>this.setState({notification: false})}>
+          <div className="row hide">
+              <div className="col-lg-12">
+                <div className="message border-bottom">Charl Robert's Offer is added.</div>
+              </div>
+          </div>
+          <div className="row">
+              <div className="col-lg-12">
+                <div className="message border-bottom">Seb Robert's offer is created.</div>
+              </div>
+          </div>
+          <div className="row">
+              <div className="col-lg-12">
+                <div className="message">Tim Greef's Simulation is created.</div>
+              </div>
+          </div>
+        </div>
         <div className={"bg-light search-result " + (this.state.filterData.length === 0 && this.state.searchText === '' ? 'hide' : '')}>
           <i className="fa fa-close fa-lg float-right m-r-10 m-t-10" onClick={() => this.setState({ filterData: [], searchText: '' })}></i>
           <div className="container">
@@ -164,7 +186,7 @@ class Header extends React.Component {
               <br />
               <div className="row">
                 <div className="col-lg-6">
-                  <h4 className="card-title text-red float-right">
+                  <h4 className="card-title text-red float-right m-t-10">
                     Not the {this.state.searchText} you are looking for?
               </h4>
                 </div>

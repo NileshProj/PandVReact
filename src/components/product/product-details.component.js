@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-rangeslider';
 import '../../range.css';
-import { PieChart } from 'react-d3-components';
+import PieChart from 'react-minimal-pie-chart';
 
 class ProductDetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 100,
+            value: 65,
             value1: 100,
             active:1,
             d3: ''
@@ -21,7 +21,14 @@ class ProductDetails extends React.Component {
     }
 
     setActive(index) {
-        this.setState({active: index});
+        let val = 65;
+        if(index === 2){
+            val = 50;
+        }
+        if(index === 3) {
+            val = 35;
+        }
+        this.setState({active: index, value: val});
     }
 
     handleOnChange = (value) => {
@@ -57,12 +64,6 @@ class ProductDetails extends React.Component {
     };
 
     render() {
-        var data = {
-            label: 'B21',
-            values: [{x: 'B21', y: 60}, {x: 'B23', y: 40}]
-    };
-        
-        var sort = null;
         return (
             <div>
                 <nav>
@@ -112,9 +113,9 @@ class ProductDetails extends React.Component {
                                     <br></br>
                                     <strong>Risk Profile: </strong>
                                     <span className="text-orange">
-                                        <span className={this.state.active === 1 ? "bold": ''} onClick={()=>this.setActive(1)} >Defensive</span> |
-                                         <span className={this.state.active === 2 ? "bold": ''} onClick={()=>this.setActive(2)} >Neutral</span> | 
-                                         <span className={this.state.active === 3 ? "bold": ''} onClick={()=>this.setActive(3)} >Dynamic</span>
+                                        <span className={"m-r-10 "+(this.state.active === 1 ? "bold": '')} onClick={()=>this.setActive(1)} >Defensive</span> |
+                                         <span className={"m-r-10 m-l-10 "+(this.state.active === 2 ? "bold": '')} onClick={()=>this.setActive(2)} >Neutral</span> | 
+                                         <span className={"m-r-10 m-l-10"+(this.state.active === 3 ? "bold": '')} onClick={()=>this.setActive(3)} >Dynamic</span>
                                     </span>
                                     <br></br>
                                     <br></br>
@@ -145,14 +146,21 @@ class ProductDetails extends React.Component {
                                         <div className="col-lg-6">
                                             <div className="m-l-50">Sales</div>
                                             <br></br>
-                                            <div className="pie"></div>
-                                            {/* <PieChart
-                                                data={data}
-                                                width={600}
-                                                height={400}
-                                                margin={{top: 10, bottom: 10, left: 100, right: 100}}
-                                                sort={sort}
-                                                /> */}
+                                            {/* <div className="pie"></div> */}
+                                            <PieChart
+                                                data={[
+                                                    { title: 'B21', value: this.state.value, color: '#e4dddd' },
+                                                    { title: 'B23', value: 100-this.state.value, color: '#655' },
+                                                ]}
+                                                style={{
+                                                    height: '100px',
+                                                    width: '100px'
+                                                  }}
+                                                  viewBoxSize={[
+                                                    100,
+                                                    100
+                                                  ]}
+                                                />
                                             
                                             <br></br>
                                             <div>
@@ -172,7 +180,7 @@ class ProductDetails extends React.Component {
                                             <h5 className="text-red">Fund Information</h5>
                                             <div className="float-left">
                                                 <strong>B21 with Profit Sharing</strong><br></br>
-                                                <span >Equities</span>
+                                                <span className="m-r-10">Equities</span>
                                                 <span className=" btn-red white m-r-10">Monetary</span>
                                                 <span className="text-red float-right">|</span>
                                             </div>
@@ -237,8 +245,8 @@ class ProductDetails extends React.Component {
                                                         onChangeComplete={this.handleChangeComplete}
                                                     />
                                                 </div>
-                                                <div className="col-lg-3 p-l-">
-                                                    <input type="number" className="form-control input-range-slider" onChange={() => { }}
+                                                <div className="col-lg-3 ">
+                                                    <input type="number" className="form-control input-range-slide" onChange={() => { }}
                                                         placeholder="0" id="input-demo" value={this.state.value1} ></input>
                                                 </div>
                                             </div>
@@ -249,7 +257,7 @@ class ProductDetails extends React.Component {
                                     <div className="row">
                                         <div className="col-lg-4">
                                             <div className="row">
-                                                <div className="col-lg-4">
+                                                <div className="col-lg-4 m-t-30">
                                                     <img
                                                         src="/images/user1.png"
                                                         height={80}
