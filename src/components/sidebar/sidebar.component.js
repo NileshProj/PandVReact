@@ -30,7 +30,7 @@ class SideBar extends React.Component {
                                 <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 2 ? 'active' : '')}>
                                     <Link className={"nav-link " + (this.state.active === 2 ? 'active' : '')} 
                                     onMouseEnter={()=>this.setState({popup: true})}
-                                    onMouseLeave={()=>this.setState({popup: false})}
+                                    // onMouseLeave={()=>this.setState({popup: false})}
                                     onClick={() => this.setState({ active: 2 })} to="/profile/simulation">
                                         <span data-feather="file" />
                                         <i className="fa fa-dashboard fa-lg m-r-10" aria-hidden="true" />
@@ -86,7 +86,7 @@ class SideBar extends React.Component {
                                 </li>
                             </ul>
                         </div>
-                        <div className={"custom-popup "+(this.state.popup ? '': 'hide')}>
+                        <div className={"custom-popup "+(this.state.popup ? '': 'hide')} onMouseLeave={()=>this.setState({popup: false})}>
                         <div className="row m-t-10 custom-popover popover bs-popover-right">
                             <div className="arrow" />
                             <div className="row">

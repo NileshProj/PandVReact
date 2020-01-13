@@ -11,7 +11,8 @@ class NeedAnalysis extends React.Component {
             invalidity: true,
             accidental: true,
             pension: true,
-            saving: true
+            saving: true,
+            singlePremMode: 'M'
         }
     }
     render() {
@@ -66,7 +67,7 @@ class NeedAnalysis extends React.Component {
                                         <div className="col-lg-6 m-t-20">
                                             <h5 className="card-title text-red p-l-10 p-t-10">
                                                 Specification details for pension
-                </h5>
+                                            </h5>
                                             <div className="p-l-10">
                                                 <form>
                                                     <div className="row">
@@ -131,7 +132,7 @@ class NeedAnalysis extends React.Component {
                                                         <div className="col-lg-9 p-r-0">
                                                             <div className="form-group">
                                                                 <label htmlFor="two">
-                                                                    Do you want to pay single premium?
+                                                                    How would you like to pay your premium?
                                                                 </label>
                                                                 <br />
                                                                 <div
@@ -141,11 +142,44 @@ class NeedAnalysis extends React.Component {
                                                                 >
                                                                     <button type="button"  className={"btn "+(this.state.singlePrem ?  'btn-red white': 'btn-light')}
                                                                      onClick={()=>this.setState({singlePrem: true})}>
-                                                                        Yes
+                                                                        Single
                                                                     </button>
                                                                     <button type="button" className={"btn "+(!this.state.singlePrem ?  'btn-red white': 'btn-light')} 
                                                                     onClick={()=>this.setState({singlePrem: false})}>
-                                                                        No
+                                                                        Regular
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-lg-3"></div>
+                                                    </div>
+                                                    <div className={"row "+(this.state.singlePrem ? 'hide': '')}>
+                                                        <div className="col-lg-9 p-r-0">
+                                                            <div className="form-group">
+                                                                <label htmlFor="two">
+                                                                    Select Mode of Regular Premium Payment?
+                                                                </label>
+                                                                <br />
+                                                                <div
+                                                                    className="btn-group btn-group-sm"
+                                                                    role="group"
+                                                                    aria-label
+                                                                >
+                                                                    <button type="button"  className={"btn "+(this.state.singlePremMode === 'M' ?  'btn-red white': 'btn-light')}
+                                                                     onClick={()=>this.setState({singlePremMode: 'M'})}>
+                                                                        Monthly
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(this.state.singlePremMode === 'Q' ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({singlePremMode: 'Q'})}>
+                                                                        Quarterly
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(this.state.singlePremMode === 'S' ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({singlePremMode: 'S'})}>
+                                                                        Semi-Annual
+                                                                    </button>
+                                                                    <button type="button" className={"btn "+(this.state.singlePremMode === 'A' ?  'btn-red white': 'btn-light')} 
+                                                                    onClick={()=>this.setState({singlePremMode: 'A'})}>
+                                                                        Annual
                                                                     </button>
                                                                 </div>
                                                             </div>

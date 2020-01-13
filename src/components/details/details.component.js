@@ -307,8 +307,7 @@ class Details extends React.Component {
                                     <h5 className="card-title text-red m-t-10 m-l-10">
                                         Recent Communication
                     </h5>
-                                    <div>
-                                        <br />
+                                    <div className="m-t-10">
                                         <div className="border m-l-10 m-r-10">
                                         12/12/2018 (Outgoing - SMS) Happy Birthday
                       </div>

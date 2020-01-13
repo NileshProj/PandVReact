@@ -218,7 +218,7 @@ class Simulation extends React.Component {
                               <div className="col-lg-4">
                                 <span>VAPZ</span>
                                 <br />
-                                <strong className="fiscal-values">{(21291.80*(this.state.value-16)/100).toFixed(2) < 0 ? (21291.80*(this.state.value-16/100).toFixed(2)): 3256.87}</strong>&nbsp;
+                                <strong className="fiscal-values">{(21291.80*(this.state.value-16)/100).toFixed(2) < 0 ? (3256.87 - this.state.value) :3256.87}</strong>&nbsp;
                                 
                                 <div className="input-group-append">
                                   <span className="info-icon-fiscal-first" data-toggle="tooltip" 
@@ -228,7 +228,7 @@ class Simulation extends React.Component {
                               <div className="col-lg-4">
                                 <span>IPT</span>
                                 <br />
-                                <strong className="fiscal-values">{(21291.80*(this.state.value-16)/100).toFixed(2) < 0 ? '0':(21291.80*(this.state.value-16)/100).toFixed(2)}</strong>&nbsp;
+                                <strong className="fiscal-values">{ (21291.80*(this.state.value-16)/100).toFixed(2) < 0 ? '0':(21291.80*(this.state.value-16)/100).toFixed(2)}</strong>&nbsp;
                                 <div className="input-group-append">
                                   <span className="info-icon-fiscal-second" data-toggle="tooltip" 
                                 data-placement="top" title="IPT">ⓘ</span>

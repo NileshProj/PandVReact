@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class MIFID extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { questions: [], active: 1 };
+        this.state = { questions: [], active: 1 , a1: '', a2: '', a3: '',a31: '', a4: '', a5: '', a6 :'', a7: ''};
         this.state.questions = [
             {
                 answer1: ''
@@ -73,40 +73,46 @@ class MIFID extends React.Component {
                                                     <div className="row">
                                                         <div className="col-lg-1 p-r-0"><strong>1)</strong></div>
                                                         <div className="col-lg-11 p-l-0">Did you acquire knowledge of financial
-                                                            products via your job or education</div>
+                                                            products via your job or education?</div>
                                                     </div>
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 2 ? 'bg-light' : '')} onClick={() => this.setActive(2)}>
                                                     <div className="row">
                                                         <div className="col-lg-1 p-r-0"><strong>2)</strong></div>
                                                         <div className="col-lg-11 p-l-0"> How did you keep informed on
-                                                        Financial-economic world</div>
+                                                        Financial-economic world?</div>
                                                     </div>
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 3 ? 'bg-light' : '')} onClick={() => this.setActive(3)}>
                                                     <div className="row">
                                                         <div className="col-lg-1 p-r-0"><strong>3)</strong></div>
-                                                        <div className="col-lg-11 p-l-0"> Do you possess Real Estate</div>
+                                                        <div className="col-lg-11 p-l-0"> Do you possess Real Estate?</div>
+                                                    </div>
+                                                </li>
+                                                <li className={"nav-item list-group-item " + (this.state.active === 3.1 ? 'bg-light' : ((this.state.a3 === 1 || this.state.a3 === 2) ? '':'hide'))} onClick={() => this.setActive(3.1)}>
+                                                    <div className="row">
+                                                        <div className="col-lg-1 p-r-0"><strong>3.1)</strong></div>
+                                                        <div className="col-lg-11 p-l-0">  What is the approximate value of your Property?</div>
                                                     </div>
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 4 ? 'bg-light' : '')} onClick={() => this.setActive(4)}>
                                                     <div className="row">
                                                         <div className="col-lg-1 p-r-0"><strong>4)</strong></div>
-                                                        <div className="col-lg-11 p-l-0">  What is your monthly net income</div>
+                                                        <div className="col-lg-11 p-l-0"> How much all your wealth (financial assets, real estates, movables, etc.)?</div>
                                                     </div>
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 5 ? 'bg-light' : '')} onClick={() => this.setActive(5)}>
                                                     <div className="row">
                                                         <div className="col-lg-1 p-r-0"><strong>5)</strong></div>
                                                         <div className="col-lg-11 p-l-0">How much are you able to save on
-                                                        monthly basis taking into account your regular expenses</div>
+                                                        monthly basis taking into account your regular expenses?</div>
                                                     </div>
                                                 </li>
                                                 <li className={"nav-item list-group-item " + (this.state.active === 6 ? 'bg-light' : '')} onClick={() => this.setActive(6)}>
                                                     <div className="row">
                                                         <div className="col-lg-1 p-r-0"><strong>6)</strong></div>
                                                         <div className="col-lg-11 p-l-0">How do you expect your financial
-                                                        simulation to evolve in the short term(5 years)</div>
+                                                        simulation to evolve in the short term(5 years)?</div>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -118,18 +124,45 @@ class MIFID extends React.Component {
                                             <div
                                                 className="bg-light p-l-20 p-t-20"
                                                 style={{ height: "100%", fontSize: '15px' }}>
-                                                <div>
-                                                    <strong>1)</strong> Answer1
+                                                <div className={this.state.active === 1 ? 'col-lg-3': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a1 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a1:1})}>Yes</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a1 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a1:2})}>No</span></div>
                                                 </div>
-                                                <div className="m-t-5">
-                                                    <strong>2)</strong> Answer2
+                                                <div className={this.state.active === 2 ? '': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a2 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a2:1})}>News Papers</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a2 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a2:2})}>TV</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a2 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a2:3})}>Internet</span></div>
                                                 </div>
-                                                <div className="m-t-5">
-                                                    <strong>3)</strong> Answer3
+                                                <div className={this.state.active === 3 ? '': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a3 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>{this.setState({a3:1});this.setState({active: 3.1})}}>Yes (One Property)</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a3 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>{this.setState({a3:2});this.setState({active: 3.1})}}>Yes (More than One Property)</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a3 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a3:3})}>No</span></div>
+                                                    
                                                 </div>
-                                                <div className="m-t-5">
-                                                    <strong>4)</strong> Answer4
+                                                <div className={this.state.active === 3.1 ? '': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a31 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:1})}>Below 250K EUR</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a31 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:2})}>Between 250K - 1M EUR</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a31 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:3})}>Above 1M EUR</span></div>
+                                                    
                                                 </div>
+                                                <div className={this.state.active === 4 ? '': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a4 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:1})}>Below 20 Millian EUR</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a4 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:2})}>Between EUR 20 and 70 Millian</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a4 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:3})}>Over EUR 70 Millian</span></div>
+                                                    
+                                                </div>
+                                                <div className={this.state.active === 5 ? '': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a5 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:1})}>Below 10 Millian EUR</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a5 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:2})}>Between 10 to 30 Millian EUR</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a5 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:3})}>Above 30 Millian EUR</span></div>
+                                                </div>
+                                                <div className={this.state.active === 6 ? '': 'hide'}>
+                                                    <div><strong>1)</strong> <span className={this.state.a6 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a6:1})}>Should Cover Financial Goal</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a6 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a6:2})}>Get good returns</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a6 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a6:3})}>Enough for retirement plan</span></div>
+                                                    
+                                                </div>
+                                                
                                                 <button className="btn btn-red full-width white" data-toggle="modal" data-target=".bd-example-modal-lg"
                                                     style={{ position: "absolute", width: '97%', bottom: 0, left: 0 }}>Complete Questionnaire</button>
                                             </div>
