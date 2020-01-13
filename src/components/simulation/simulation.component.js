@@ -139,7 +139,7 @@ class Simulation extends React.Component {
                                   <input
                                     type="text"
                                     className="form-control "
-                                    defaultValue="23/05/01/03/2006"
+                                    defaultValue="01/03/2006"
                                     id="one"
 
                                   />

@@ -143,7 +143,7 @@ class MIFID extends React.Component {
                                                 <div className={this.state.active === 3.1 ? '': 'hide'}>
                                                     <div><strong>1)</strong> <span className={this.state.a31 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:1})}>Below 250K EUR</span></div>
                                                     <div><strong>2)</strong> <span className={this.state.a31 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:2})}>Between 250K - 1M EUR</span></div>
-                                                    <div><strong>2)</strong> <span className={this.state.a31 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:3})}>Above 1M EUR</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a31 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a31:3})}>Above 1M EUR</span></div>
                                                     
                                                 </div>
                                                 <div className={this.state.active === 4 ? '': 'hide'}>
