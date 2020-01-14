@@ -85,21 +85,22 @@ class Home extends React.Component {
                                 <div className="border ">
                                     <span>Leads</span>
                                     <h5>5</h5>
-                                    <i className="fa fa-flag-o fa-2x float-right top m-t-20 m-r-30" />
+                                    <img src="/images/dog.png" className="float-right top m-t-20 m-r-30 img-icon-auto"></img>
                                 </div>
                             </div>
                             <div className="col-lg-3 p-l-0 p-r-0">
                                 <div className="border">
                                     <span>Offers</span>
                                     <h5>8</h5>
-                                    <i className="fa fa-envelope-o fa-2x float-right top m-t-20 m-r-30" />
+                                    <img src="/images/job-offer-big.png" className="float-right top m-t-20 m-r-30 img-icon-auto"></img>
+                                    {/* <i className="fa fa-envelope-o fa-2x float-right top m-t-20 m-r-30" /> */}
                                 </div>
                             </div>
                             <div className="col-lg-3 p-r-0 p-l-0">
                                 <div className="border">
                                     <span>Proposals</span>
                                     <h5>20</h5>
-                                    <i className="fa fa-users fa-2x float-right top m-t-20 m-r-30" />
+                                    <img src="/images/board32.png" className="float-right top m-t-20 m-r-30 img-icon-auto"></img>
                                 </div>
                             </div>
                             <div className="col-lg-3 p-l-0">
@@ -121,7 +122,7 @@ class Home extends React.Component {
                             <div className="m-t-20">
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="border box-shadow" style={{ padding: 20, height: 222, overflow: 'auto' }}>
+                                        <div className="border box-shadow" style={{ padding: 20, height: 265, overflow: 'auto' }}>
                                             <div className={"box "+(this.state.newNote ? '': 'hide')}>
                                                     <div className="row">
                                                         <input type="text" className="form-control col-lg-6" onChange={(e)=>this.updateNote(e)} placeholder="New Note.."></input>
@@ -158,63 +159,60 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <h5 className="text-red">Frequently Used</h5>
+                    <h5 className="text-red">Quick Quote</h5>
                     <div className="border box-shadow">
+                    <div className="row">
+                            <div className="col-lg-12">
+                                <ul className="nav list-group list-group-flush frequently-used-menu">
+                                    <li className="nav-item list-group-item">
+                                        <a className="nav-link" href="#">
+                                            <span data-feather="home" />
+                                            <img src="/images/quick quote.svg" className="img-icon"></img>
+                                            Quick Quote
+                                        </a>
+                                    </li></ul>
+                                    </div>
+                                    </div>
+                    </div>
+                    <br></br>
+                    <h5 className="text-red">Frequently Used</h5>
+                    <div className="border box-shadow m-t-25">
                         <div className="row">
                             <div className="col-lg-12">
                                 <ul className="nav list-group list-group-flush frequently-used-menu">
                                     <li className="nav-item list-group-item">
                                         <a className="nav-link" href="#">
                                             <span data-feather="home" />
-                                            <i
-                                                className="fa fa-user-circle fa-lg m-r-10"
-                                                aria-hidden="true"
-                                            />
+                                            <img src="/images/support.png" className="img-icon"></img>
                                             Create Customer
             </a>
                                     </li>
                                     <li className="nav-item list-group-item">
                                         <a className="nav-link" href="#">
                                             <span data-feather="home" />
-                                            <i className="fa fa-users fa-lg m-r-10" aria-hidden="true" />
+                                            <img src="/images/simulation.png" className="img-icon"></img>
                                             Create Simulations
             </a>
                                     </li>
                                     <li className="nav-item list-group-item">
                                         <a className="nav-link" href="#">
                                             <span data-feather="home" />
-                                            <i
-                                                className="fa fa-envelope-o fa-lg m-r-10"
-                                                aria-hidden="true"
-                                            />
+                                            <img src="/images/job-offer.png" className="img-icon"></img>
                                             Create Offer
             </a>
                                     </li>
                                     <li className="nav-item list-group-item">
                                         <a className="nav-link" href="#">
                                             <span data-feather="home" />
-                                            <i className="fa fa-file fa-lg m-r-10" aria-hidden="true" />
+                                            <img src="/images/prospect.png" className="img-icon"></img>
                                             Create Prospect
             </a>
                                     </li>
                                     <li className="nav-item list-group-item">
                                         <a className="nav-link" href="#">
                                             <span data-feather="home" />
-                                            <i
-                                                className="fa fa-calendar-o fa-lg m-r-10"
-                                                aria-hidden="true"
-                                            />
+                                            <img src="/images/board.png" className="img-icon"></img>
                                             Create Proposals
-            </a>
-                                    </li>
-                                    <li className="nav-item list-group-item">
-                                        <a className="nav-link" href="#">
-                                            <span data-feather="home" />
-                                            <i
-                                                className="fa fa-envelope-o fa-lg m-r-10"
-                                                aria-hidden="true"
-                                            />
-                                            Endorse Contract
             </a>
                                     </li>
                                 </ul>

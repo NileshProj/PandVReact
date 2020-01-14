@@ -125,6 +125,9 @@ body {
   .m-r-30 {
     margin-right: 30px;
   }
+  .m-r-20 {
+    margin-right: 20px;
+  }
 
   .m-l-50 {
     margin-left: 50px;
@@ -157,6 +160,9 @@ body {
   }
   .m-t-20 {
     margin-top: 20px;
+  }
+  .m-t-25 {
+    margin-top: 25px;
   }
   .m-t-30 {
     margin-top: 30px;
@@ -270,7 +276,7 @@ body {
 
   }
   .list-group-item {
-    padding: 10px;
+    padding: 5px;
   }
 
   .list-group-item,
@@ -567,5 +573,9 @@ body {
         }
         .img-icon {
           height: 20px;
+          margin-right: 10px;
+        }
+        .img-icon-auto {
+          height: 32px;
           margin-right: 10px;
         }

@@ -18,14 +18,12 @@ class NeedAnalysis extends React.Component {
     }
     componentDidMount() {
         let saveData = JSON.parse(sessionStorage.getItem('needAnalysis'));
-        console.log(saveData);
         if(saveData) {
             this.setState({...saveData});
         }
     }
 
     saveData() {
-        console.log(this.state);
         sessionStorage.setItem('needAnalysis', JSON.stringify(this.state));
     }
 

@@ -24,10 +24,16 @@ class Simulation extends React.Component {
   }
   componentDidMount() {
     let savedState =JSON.parse(sessionStorage.getItem('simulation'));
+    if(savedState) {
+      this.setState({
+        fiscalinput: this.state.vapz + this.state.ipt, value: savedState.value 
+      });  
+    } else {
+      this.setState({
+        fiscalinput: this.state.vapz + this.state.ipt 
+      });
+    }
     
-    this.setState({
-      fiscalinput: this.state.vapz + this.state.ipt, value: savedState.value 
-    });
     this.setState({onepercentage: parseFloat((this.state.vapz + this.state.ipt)/100).toFixed(2)});
     this.saveData();
   }
@@ -65,7 +71,6 @@ class Simulation extends React.Component {
     "0": (this.state.ipt-(this.state.onepercentage*(100-this.state.value))).toFixed(2);
 
     this.setState({updatedVapz: vapz, updatedIpt: ipt});
-    console.log(this.state);
     sessionStorage.setItem('simulation', JSON.stringify(this.state));
   }
 

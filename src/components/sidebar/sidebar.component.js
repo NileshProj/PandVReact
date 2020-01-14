@@ -13,7 +13,6 @@ class SideBar extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.location.pathname);
         let active = this.props.location.pathname.includes('simulation') ? 2 : 1;
         this.setState({active: active});
     }
