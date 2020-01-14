@@ -36,6 +36,7 @@ class Simulation extends React.Component {
     
     this.setState({onepercentage: parseFloat((this.state.vapz + this.state.ipt)/100).toFixed(2)});
     this.saveData();
+    this.props.setActive(2);
   }
 
   handleChangeStart = () => {
@@ -429,7 +430,7 @@ class Simulation extends React.Component {
                     <h5 className="text-red">Would you like to?</h5>
                     <br></br>
                     <div style={{ fontSize: '15px', marginBottom: '10px' }}>
-                      <Link to="/profile/offera" style={{ color: '#000' }} onClick={() => { this.myRef.current.click() }}>Make this simulation an Offer</Link>
+                      <Link to="/profile/offers" style={{ color: '#000' }} onClick={() => { this.myRef.current.click() }}>Make this simulation an Offer</Link>
                     </div>
                     <div style={{ fontSize: '15px', marginBottom: '10px' }}>
                       <Link to="/profile/offers" style={{ color: '#000' }} onClick={() => { this.myRef.current.click() }}>Make this simulation a Proposal</Link>

@@ -16,6 +16,7 @@ class MIFID extends React.Component {
         if(savedData) {
             this.setState({...savedData});
         }
+        this.props.setActive(3);
     }
 
     saveData() {

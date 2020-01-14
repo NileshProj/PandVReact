@@ -95,6 +95,7 @@ class Details extends React.Component {
         if(star) {
             this.setState({stared: star === '1'});
         }
+        this.props.setActive(1);
     }
     starProfile() {
         this.setState({stared : true});

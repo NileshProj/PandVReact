@@ -10,6 +10,7 @@ class Offers extends React.Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0)
+    this.props.setActive(4);
   }
   saveData() {
     

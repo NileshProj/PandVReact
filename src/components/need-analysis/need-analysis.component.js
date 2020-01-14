@@ -21,6 +21,7 @@ class NeedAnalysis extends React.Component {
         if(saveData) {
             this.setState({...saveData});
         }
+        this.props.setActive(3);
     }
 
     saveData() {

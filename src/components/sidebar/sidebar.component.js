@@ -17,6 +17,10 @@ class SideBar extends React.Component {
         this.setState({active: active});
     }
 
+    componentWillReceiveProps(props) {
+        this.setState({active: props.active});
+    }
+
     render() {
         return (
             
@@ -44,8 +48,8 @@ class SideBar extends React.Component {
                                             aria-hidden="true" /> */}
                                     </Link>
                                 </li>
-                                <li className="nav-item list-group-item bg-brown p-l-0 ">
-                                    <a className="nav-link" >
+                                <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 3 ? 'active' : '')}>
+                                    <a className={"nav-link " + (this.state.active === 3 ? 'active' : '')} >
                                         <img src="/images/compliances.png" className="img-icon"></img>
                                         Compliance
                                     </a>
@@ -77,8 +81,8 @@ class SideBar extends React.Component {
                                             aria-hidden="true" />
                                     </Link>
                                 </li> */}
-                                <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 6 ? 'active' : '')}>
-                                    <Link className={"nav-link " + (this.state.active === 6 ? 'active' : '')} onClick={() => this.setState({ active: 6 })} to="/profile/offers">
+                                <li className={"nav-item list-group-item bg-brown p-l-0 " + (this.state.active === 4 ? 'active' : '')}>
+                                    <Link className={"nav-link " + (this.state.active === 4 ? 'active' : '')} onClick={() => this.setState({ active: 6 })} to="/profile/offers">
                                         <span data-feather="file" />
                                         <img src="/images/offers.png" className="img-icon"></img>
                                         Offers &amp; Proposals
