@@ -13,56 +13,56 @@ class Header extends React.Component {
         name: 'Charl Robert (177012)',
         dob: '22/03/1957',
         address: 'Boulevard De Wilde 81',
-        address1: '1440 Péruwelz',
+        address1: '1440 Peruwelz',
         imageurl: '/images/user1.png'
       },
       {
         name: 'Tim Charles (177013)',
         dob: '12/06/1975',
         address: 'Palm villa 932',
-        address1: '100 Péruwelz'
+        address1: '5001 Berat'
       },
       {
         name: 'Charleen Jones (248418)',
         dob: '15/09/1965',
         address: 'Chemin Roels 4',
-        address1: '1440 Péruwelz'
+        address1: '5019 Cete'
       },
       {
         name: 'Charlene Yi (182215)',
         dob: '14/01/1959',
-        address: 'Avenue Gielen 9',
-        address1: '1440 Péruwelz'
+        address: 'Bulevar ASNOM 16',
+        address1: '5015 Lugas'
       },
       {
         name: 'James Charlton (216158)',
         dob: '21/10/1966',
-        address: 'Avenue Gielen 9',
-        address1: '1440 Péruwelz'
+        address: 'Pflugfelder Str. 36',
+        address1: '5012 Bilce'
       },
       {
         name: 'Charly Luyten (862528)',
         dob: '19/08/1968',
-        address: 'Avenue Gielen 9',
-        address1: '1440 Péruwelz'
+        address: 'Fritzoe Brygge',
+        address1: '5412 Vlushe'
       },
       {
         name: 'Charly Smith (345774)',
         dob: '1/10/1970',
-        address: 'Avenue Gielen 9',
-        address1: '1440 Péruwelz'
+        address: 'Kongensgate 35',
+        address1: '5401 Cerove'
       },
       {
         name: 'Charl Robert (124823)',
         dob: '15/09/1965',
-        address: 'Avenue Gielen 9',
-        address1: '1440 Péruwelz'
+        address: 'Olav V s gate 4',
+        address1: '5406 Malind'
       },
       {
         name: 'Charl Schmitz (165138)',
         dob: '30/03/1964',
-        address: 'Avenue Gielen 9',
-        address1: '1440 Péruwelz'
+        address: 'Quai Paul Verlaine 12',
+        address1: '5411 Zhepe'
       },
     ];
   }
