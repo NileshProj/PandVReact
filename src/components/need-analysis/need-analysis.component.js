@@ -94,7 +94,7 @@ class NeedAnalysis extends React.Component {
                                                                 <input
                                                                     type="text"
                                                                     className="form-control "
-                                                                    defaultValue={'50,000'}
+                                                                    defaultValue={'500,000'}
                                                                     id="one"
                                                                 />
                                                             </div>
