@@ -142,7 +142,7 @@ class Home extends React.Component {
                                                     <i className={"fa fa-save fa-lg text-red m-t-10 m-l-10 "+(this.state.edit === index ? '':'hide')} onClick={()=>this.setState({edit:-1})}></i>
                                                         <div style={{margin: '12px 10px 10px 10px'}} className={(this.state.edit === index ? 'hide': '')}>
                                                             <i className={"fa fa-check fa-lg m-r-10 "+(note.checked ? '': 'hide')} />
-                                                            <i className="fa fa-trash fa-lg float-right m-t-5" onClick={()=>this.deleteNote(index)}/>
+                                                            <i className="fa fa-trash fa-lg float-right m-t-5 trash-margin" onClick={()=>this.deleteNote(index)}/>
                                                             <i className="fa fa-edit fa-lg m-r-10 float-right m-t-5 m-r-10" onClick={()=>this.editNote(index)}/>
                                                         </div>
                                                     </div>
