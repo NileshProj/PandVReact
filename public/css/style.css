@@ -568,10 +568,10 @@ body {
           border-radius: 15px;
           margin: 2px;
           font-size: 11px;
-          position: relative;
-          top: -25px;
+          position: absolute;
           width: 18px;
-          left: 8px;
+          right: 150px;
+          top: 24px;
         }
 
         .message {
