@@ -287,7 +287,9 @@ body {
   .sidebar .nav-link {
     color: rgb(171, 160, 161);
   }
-
+  .sidebar a:hover {
+    color: rgb(171, 160, 161);
+  }
   .tab-name {
     width: 300px;
     border-bottom: 2px solid red !important;
@@ -486,6 +488,9 @@ body {
         }
         .carousel-control-prev-icon, .carousel-control-next-icon {
           color: #000 !important;
+        }
+        .carousel {
+            position: static;
         }
         .search-result {
           z-index: 1031;
