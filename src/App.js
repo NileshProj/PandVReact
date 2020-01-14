@@ -12,16 +12,22 @@ import Profile from './components/profile/profile.component';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {active:1};
+    this.setActive = this.setActive.bind(this);
   }
+
+  setActive(index) {
+    this.setState({active: index});
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <Header></Header>
+          <Header active={this.state.active}></Header>
           <Switch>
             <Route exact path="/">
-              <Home></Home>
+              <Home setActive={this.setActive}></Home>
             </Route>
             <Route path="/profile">
               <Profile></Profile>

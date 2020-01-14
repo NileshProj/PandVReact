@@ -6,11 +6,14 @@ class Offers extends React.Component {
     super(props);
     this.state = {};
     this.myRef = React.createRef();
-
+    this.saveData = this.saveData.bind(this);
   }
   componentDidMount() {
     window.scrollTo(0, 0)
-}
+  }
+  saveData() {
+    
+  }
   render(){
     return (
       <div>
@@ -32,7 +35,7 @@ class Offers extends React.Component {
             </a>
                   <div className="btn-group dropright">
                     <i
-                      className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
+                      className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red hide"
                       id="dropdownMenu"
                       data-toggle="dropdown"
                       data-reference="parent"
@@ -51,6 +54,10 @@ class Offers extends React.Component {
                     </div>
                   </div>
                 </div>
+                <div>
+                        <i className="fa fa-save text-red fa-lg float-right black top m-r-10" title="Save" onClick={this.saveData} style={{cursor: 'pointer'}}></i>
+                        <Link className="fa fa-chevron-left fa-lg float-right black top m-r-50" title="Previous" to="/profile/product-details" style={{cursor: 'pointer'}}></Link>
+                    </div>
               </nav>
               <div className="tab-content" id="nav-tabContent">
                 <div

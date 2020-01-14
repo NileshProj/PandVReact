@@ -14,21 +14,22 @@ class Simulation extends React.Component {
       ipt: 21291.80,
       iptbackservice: 0,
       onepercentage: 0,
-      vapzpopup: false
+      vapzpopup: false,
+      updatedVapz:0,
+      updatedIpt: 0,
     }
     this.myRef = React.createRef();
     this.myRef1 = React.createRef();
+    this.saveData = this.saveData.bind(this);
   }
   componentDidMount() {
+    let savedState =JSON.parse(sessionStorage.getItem('simulation'));
+    
     this.setState({
-      fiscalinput: this.state.vapz + this.state.ipt 
+      fiscalinput: this.state.vapz + this.state.ipt, value: savedState.value 
     });
     this.setState({onepercentage: parseFloat((this.state.vapz + this.state.ipt)/100).toFixed(2)});
-  }
-  handleOnChange = (value) => {
-    this.setState({
-      volume: value
-    })
+    this.saveData();
   }
 
   handleChangeStart = () => {
@@ -38,11 +39,12 @@ class Simulation extends React.Component {
   handleChange = value => {
     this.setState({
       value: value
-    })
+    });
   };
 
   handleChangeComplete = () => {
     console.log('Change event completed')
+    this.saveData();
   };
 
   onTodoChange(value) {
@@ -51,6 +53,20 @@ class Simulation extends React.Component {
     }, () => this.setState({
       fiscalinput: Number(this.state.vapz) + Number(this.state.ipt)
     }));
+  }
+
+  saveData() {
+    let vapz = this.state.ipt-(this.state.onepercentage*(100-this.state.value)) < 0 ? 
+    ((this.state.vapz + (this.state.ipt-(this.state.onepercentage*(100-this.state.value)))).toFixed(2) < 0 ? '0':
+    (this.state.vapz + (this.state.ipt-(this.state.onepercentage*(100-this.state.value)))).toFixed(2))
+    : this.state.vapz;
+    
+    let ipt = this.state.ipt-(this.state.onepercentage*(100-this.state.value)) < 0 ? 
+    "0": (this.state.ipt-(this.state.onepercentage*(100-this.state.value))).toFixed(2);
+
+    this.setState({updatedVapz: vapz, updatedIpt: ipt});
+    console.log(this.state);
+    sessionStorage.setItem('simulation', JSON.stringify(this.state));
   }
 
   render() {
@@ -73,9 +89,13 @@ class Simulation extends React.Component {
                   Charl Robert &gt; 80% simulation
             </a>
                 <i
-                  className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
+                  className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red hide"
                   aria-hidden="true"
                 />
+              </div>
+              <div>
+                  <i className="fa fa-save text-red fa-lg float-right black top m-r-10" title="Save" onClick={this.saveData} style={{cursor: 'pointer'}}></i>
+                  <Link className="fa fa-chevron-left fa-lg float-right black top m-r-50" title="Previous" to="/profile/details/0" style={{cursor: 'pointer'}}></Link>
               </div>
             </nav>
             <div className="tab-content" id="nav-tabContent">
@@ -326,13 +346,13 @@ class Simulation extends React.Component {
                         <div className="row">
                           <div className="col-lg-6">
                             <br />
-                            <button className="btn btn-red white full-width save-btn" data-toggle="modal" data-target=".bd-example-modal-lg1">
+                            <button className="btn btn-red white full-width save-btn" onClick={this.saveData} data-toggle="modal" data-target=".bd-example-modal-lg1">
                               Save as Draft
                                 </button>
                           </div>
                           <div className="col-lg-6">
                             <br />
-                            <button className="btn btn-red white full-width" data-toggle="modal" data-target=".bd-example-modal-lg">
+                            <button className="btn btn-red white full-width" onClick={this.saveData} data-toggle="modal" data-target=".bd-example-modal-lg">
                               Done
                                 </button>
                           </div>
@@ -382,8 +402,8 @@ class Simulation extends React.Component {
                       <div className="col-lg-5">
                         <div>€ 42,400</div>
                         <div>€ {parseFloat(this.state.fiscalinput * (this.state.value) / 100).toFixed(2)} ({this.state.value}%)</div>
-                        <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? (this.state.vapz - this.state.value) : this.state.vapz}</div>
-                        <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? '0' : (this.state.ipt * (this.state.value) / 100).toFixed(2)}</div>
+                        <div>€ {this.state.updatedVapz}</div>
+                        <div>€ {this.state.updatedIpt}</div>
                       </div>
                     </div>
                     <br></br>
@@ -452,8 +472,8 @@ class Simulation extends React.Component {
                       <div className="col-lg-5">
                         <div>€ 42,400</div>
                         <div>€ {parseFloat(this.state.fiscalinput * (this.state.value) / 100).toFixed(2)} ({this.state.value}%)</div>
-                        <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? (this.state.vapz - this.state.value) : this.state.vapz}</div>
-                        <div>€ {(this.state.ipt * (this.state.value) / 100).toFixed(2) < 0 ? '0' : (this.state.ipt * (this.state.value) / 100).toFixed(2)}</div>
+                        <div>€ {this.state.updatedVapz}</div>
+                        <div>€ {this.state.updatedIpt}</div>
                       </div>
                     </div>
                     <br></br>
@@ -474,10 +494,10 @@ class Simulation extends React.Component {
                     <h5 className="text-red">Would you like to?</h5>
                     <br></br>
                     <div style={{ fontSize: '15px', marginBottom: '10px' }}>
-                      <Link style={{ color: '#000' }} onClick={() => { this.myRef1.current.click() }}>Continue making changes</Link>
+                      <a style={{ color: '#000', cursor: 'pointer' }} onClick={() => { this.myRef1.current.click() }}>Continue making changes</a>
                     </div>
                     <div style={{ fontSize: '15px', marginBottom: '10px' }}>
-                      <Link to="/profile/details/0" style={{ color: '#000' }} onClick={() => { this.myRef1.current.click() }}>Go back to Charl’s Profile</Link>
+                      <Link to="/profile/details/0" style={{ color: '#000', textDecoration: 'none'}} onClick={() => { this.myRef1.current.click() }}>Go back to Charl’s Profile</Link>
                     </div>
                   </div>
                 </div>

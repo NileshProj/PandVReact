@@ -3,7 +3,7 @@ import React from 'react';
 class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {notes: [], note: '',newNote: false, edit: -1};
+        this.state = {notes: [], note: '',newNote: false, edit: -1, star: 0, currentUser: ''};
         this.newNote = this.newNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
         this.updateNote = this.updateNote.bind(this);
@@ -32,6 +32,15 @@ class Home extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
+        let star = sessionStorage.getItem('star');
+        let currentUser = sessionStorage.getItem('currentUser');
+        if(star) {
+            this.setState({star: parseInt(star)});
+        }
+        if(currentUser) {
+            this.setState({currentUser: currentUser});
+        }
+        this.props.setActive(1);
     }
 
     newNote () {
@@ -96,7 +105,7 @@ class Home extends React.Component {
                             <div className="col-lg-3 p-l-0">
                                 <div className="border">
                                     <span>Starred Profiles</span>
-                                    <h5>23</h5>
+                                    <h5>{23 + this.state.star}</h5>
                                     <i className="fa fa-star-o fa-2x float-right top m-t-20 m-r-30" />
                                 </div>
                             </div>
@@ -243,7 +252,7 @@ class Home extends React.Component {
                     <div className="carousel-inner">
                         <div className="carousel-item active" >
                             <div className="row">
-                                <div className="col-lg-4 hide">
+                                <div className={"col-lg-4 "+(this.state.currentUser ? '': 'hide')}>
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
                                             <div className="col-md-5">
@@ -368,7 +377,7 @@ class Home extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-4">
+                                <div className={"col-lg-4 "+(this.state.currentUser ? 'hide': '')}>
                                     <div className="card box-shadow">
                                         <div className="row no-gutters">
                                             <div className="col-md-5">

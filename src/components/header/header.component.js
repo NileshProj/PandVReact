@@ -1,11 +1,11 @@
 import React from 'react';
 import './header.component.css'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { active: 1, data: [{}], filterData: [], searchText: '', notification: false, count: 2 ,};
+    this.state = { active: props.active, data: [{}], filterData: [], searchText: '', notification: false, count: 2 ,};
     this.setActive = this.setActive.bind(this);
     this.search = this.search.bind(this);
     this.state.data = [
@@ -68,6 +68,18 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    let active = this.props.location.pathname.includes('profile') ? 2 : 1;
+    this.setState({active: active});
+  }
+  
+  componentWillReceiveProps(props){
+    // if(props.active && this.state.active !== props.active) {
+    //   this.setState({active: props.active === 1 ? 1 : 2});
+    // } 
+    setTimeout(() => {
+      let active = this.props.location.pathname.includes('profile') ? 2 : 1;
+      this.setState({active: active});
+    }, 1000);
     
   }
 
@@ -207,4 +219,4 @@ class Header extends React.Component {
 }
 
 
-export default Header;
+export default withRouter(Header);

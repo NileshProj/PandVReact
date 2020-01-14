@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -10,6 +10,12 @@ class SideBar extends React.Component {
 
     setActive(index) {
         this.setState({ active: index });
+    }
+
+    componentDidMount() {
+        console.log(this.props.location.pathname);
+        let active = this.props.location.pathname.includes('simulation') ? 2 : 1;
+        this.setState({active: active});
     }
 
     render() {
@@ -181,4 +187,4 @@ class SideBar extends React.Component {
 
 }
 
-export default SideBar;
+export default withRouter(SideBar);

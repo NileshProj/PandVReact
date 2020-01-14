@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Details from '../details/details.component';
 import Simulation from '../simulation/simulation.component';
 import Offers from '../offer/offer.component';
@@ -19,7 +19,6 @@ class Profile extends React.Component {
         
     }
     render() {
-        console.log(this.props);
         return (
             <div className="container-fluid">
                 <div className="row m-t-100">
@@ -64,4 +63,4 @@ class Profile extends React.Component {
     
 }
 
-export default Profile;
+export default withRouter(Profile);

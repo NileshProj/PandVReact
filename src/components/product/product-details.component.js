@@ -14,10 +14,15 @@ class ProductDetails extends React.Component {
             d3: ''
         }
         this.setActive = this.setActive.bind(this);
+        this.saveData = this.saveData.bind(this);
     }
 
     componentDidMount() {
         window.scrollTo(0, 0)
+    }
+
+    saveData() {
+
     }
 
     setActive(index) {
@@ -81,7 +86,7 @@ class ProductDetails extends React.Component {
                         </a>
                         <div className="btn-group dropright">
                             <i
-                                className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
+                                className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red hide"
                                 id="dropdownMenu"
                                 data-toggle="dropdown"
                                 data-reference="parent"
@@ -97,6 +102,10 @@ class ProductDetails extends React.Component {
                             </div>
                         </div>
 
+                    </div>
+                    <div>
+                        <i className="fa fa-save text-red fa-lg float-right black top m-r-10" title="Save" onClick={this.saveData} style={{cursor: 'pointer'}}></i>
+                        <Link className="fa fa-chevron-left fa-lg float-right black top m-r-50" title="Previous" to="/profile/product-selection" style={{cursor: 'pointer'}}></Link>
                     </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">

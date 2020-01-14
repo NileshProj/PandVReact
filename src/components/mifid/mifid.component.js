@@ -5,13 +5,21 @@ class MIFID extends React.Component {
     constructor(props) {
         super(props);
         this.state = { questions: [], active: 1 , a1: '', a2: '', a3: '',a31: '', a4: '', a5: '', a6 :'', a7: ''};
-        this.state.questions = [
-            {
-                answer1: ''
-            }
-        ]
+        
         this.setActive = this.setActive.bind(this);
+        this.saveData = this.saveData.bind(this);
         this.myRef = createRef();
+    }
+
+    componentDidMount() {
+        let savedData = JSON.parse(sessionStorage.getItem('mifid'));
+        if(savedData) {
+            this.setState({...savedData});
+        }
+    }
+
+    saveData() {
+        sessionStorage.setItem('mifid', JSON.stringify(this.state));
     }
 
     setActive(index) {
@@ -36,7 +44,7 @@ class MIFID extends React.Component {
       </a>
                         <div className="btn-group dropright">
                             <i
-                                className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
+                                className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red hide"
                                 id="dropdownMenu"
                                 data-toggle="dropdown"
                                 data-reference="parent"
@@ -54,6 +62,10 @@ class MIFID extends React.Component {
           </a>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <i className="fa fa-save text-red fa-lg float-right black top m-r-10" title="Save" onClick={this.saveData} style={{cursor: 'pointer'}}></i>
+                        <Link className="fa fa-chevron-left fa-lg float-right black top m-r-50" title="Previous" to="/profile/need-analysis" style={{cursor: 'pointer'}}></Link>
                     </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
@@ -164,7 +176,7 @@ class MIFID extends React.Component {
                                                     
                                                 </div>
                                                 
-                                                <button className="btn btn-red full-width white" data-toggle="modal" data-target=".bd-example-modal-lg"
+                                                <button className="btn btn-red full-width white" data-toggle="modal" onClick={this.saveData} data-target=".bd-example-modal-lg"
                                                     style={{ position: "absolute", width: '97%', bottom: 0, left: 0 }}>Complete Questionnaire</button>
                                             </div>
 

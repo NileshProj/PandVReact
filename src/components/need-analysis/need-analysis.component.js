@@ -14,7 +14,21 @@ class NeedAnalysis extends React.Component {
             saving: true,
             singlePremMode: 'M'
         }
+        this.saveData = this.saveData.bind(this);
     }
+    componentDidMount() {
+        let saveData = JSON.parse(sessionStorage.getItem('needAnalysis'));
+        console.log(saveData);
+        if(saveData) {
+            this.setState({...saveData});
+        }
+    }
+
+    saveData() {
+        console.log(this.state);
+        sessionStorage.setItem('needAnalysis', JSON.stringify(this.state));
+    }
+
     render() {
         return (
             <div>
@@ -33,7 +47,7 @@ class NeedAnalysis extends React.Component {
       </a>
                         <div className="btn-group dropright">
                             <i
-                                className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red"
+                                className="fa fa-plus-circle fa-2x m-l-10 m-t-5 text-red hide"
                                 id="dropdownMenu"
                                 data-toggle="dropdown"
                                 data-reference="parent"
@@ -51,6 +65,10 @@ class NeedAnalysis extends React.Component {
           </a>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <i className="fa fa-save text-red fa-lg float-right black top m-r-10" title="Save" onClick={this.saveData} style={{cursor: 'pointer'}}></i>
+                        <Link className="fa fa-chevron-left fa-lg float-right black top m-r-50" title="Previous" to="/profile/simulation" style={{cursor: 'pointer'}}></Link>
                     </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
@@ -313,7 +331,7 @@ class NeedAnalysis extends React.Component {
                                                         </div>
                                                         <div className="col-lg-3"></div>
                                                         <div className="col-lg-9 p-r-0">
-                                                            <Link className="btn btn-red white full-width" to="/profile/mifid">
+                                                            <Link className="btn btn-red white full-width" onClick={this.saveData} to="/profile/mifid">
                                                                 Proceed to MIFID Quesionnaire
                                                             </Link>
                                                         </div>

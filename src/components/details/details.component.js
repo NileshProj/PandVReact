@@ -86,12 +86,23 @@ class Details extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        let star = sessionStorage.getItem('star');
+        
+        if(user) {
+            this.setState({user: user});
+        }
+        if(star) {
+            this.setState({stared: star === '1'});
+        }
     }
     starProfile() {
         this.setState({stared : true});
+        sessionStorage.setItem('star', 1);
     }
     unstarProfile() {
         this.setState({stared : false});
+        sessionStorage.setItem('star', 0);
     }
 
     enableEdit() {
@@ -105,7 +116,8 @@ class Details extends React.Component {
     }
 
     save() {
-        this.setState({user: this.state.temp, edit :false, temp: {}});
+        sessionStorage.setItem('user', JSON.stringify(this.state.user))
+        this.setState({edit :false});
     }
 
     render() {
@@ -145,6 +157,10 @@ class Details extends React.Component {
                                 </Link>
                             </div>
                         </div>
+                        
+                    </div>
+                    <div>
+                        <Link className="fa fa-close fa-lg float-right black top m-r-10" to="/"></Link>
                     </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
@@ -225,6 +241,8 @@ class Details extends React.Component {
                                                             onChange={(e)=>this.handleChange('contact1','email',e)}></input>
                                                         </li>
                                                     </ul>
+                                                    <div>{this.state.user.contact1.email ? '' : <span className="text-red">
+                                                        <i className="fa fa-exclamation"/> Please update valid Email-Id</span>}</div>
                                                     <br />
                                                     <div>
                                                         <ul className="nav flex-column mb-2">
@@ -267,7 +285,8 @@ class Details extends React.Component {
                                                         <li className={"nav-item "+(this.state.edit ? 'hide' : '')} >
                                                             <i className="fa fa-envelope-o m-r-5"
                                                                 aria-hidden="true"
-                                                            />{this.state.user.contact2.email ? this.state.user.contact2.email : 'not found'}
+                                                            />
+                                                            {this.state.user.contact2.email ? this.state.user.contact2.email : <span className="text-red">not found</span>}
                                                         </li>
                                                         <li className={"nav-item "+(this.state.edit ? '' : 'hide')} >
                                                             <input type="text" className="form-control" value={this.state.user.contact2.email}
@@ -275,6 +294,8 @@ class Details extends React.Component {
                                                             onChange={(e)=>this.handleChange('contact2','email',e)}></input>
                                                         </li>
                                                     </ul>
+                                                    <div>{this.state.user.contact2.email ? '' : <span className="text-red">
+                                                        <i className="fa fa-exclamation"/> Please update valid Email-Id</span>}</div>
                                                     <br />
                                                     <div>
                                                         <ul className="nav flex-column mb-2">
@@ -292,7 +313,7 @@ class Details extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">
-                                                <button className={"btn white btn-red float-right "+(this.state.edit ? '' : 'hide')} onClick={()=>this.setState({edit: false})}>Done</button>
+                                                <button className={"btn white btn-red float-right "+(this.state.edit ? '' : 'hide')} onClick={this.save}>Done</button>
                                                 {/* <i className={"fa fa-save fa-lg float-right "+(this.state.edit ? '' : 'hide')} onClick={this.save}></i>
                                                 <i className={"fa fa-close fa-lg float-right "+(this.state.edit ? '' : 'hide')} onClick={()=>this.setState({edit: false})}></i> */}
                                             </div>
@@ -350,6 +371,7 @@ class Details extends React.Component {
                                 </div>
                             </div>
                         </div>
+                    
                     </div>
                 </div>
                 <br></br>
