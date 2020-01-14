@@ -123,12 +123,13 @@ class Header extends React.Component {
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item  m-r-30 " onClick={()=>this.setState({notification: !this.state.notification, count: 0})}>
                   <i className="fa fa-bell fa-lg m-t-10 white" aria-hidden="true" />
-                  <div className={"count text-center "+(this.state.count === 0 ? 'hide': '')}>3</div>
+                  <div className={"count text-center "+(this.state.count === 0 ? 'hide': '')}>2</div>
                 </li>
                 <li className="nav-item border-left p-l-10">
-                  <span>
+                <img src="/images/11.jpg" className="profile-pic1"></img>
+                  {/* <span>
                     <i className="fa fa-user-circle-o fa-2x m-t-5 m-l-10" aria-hidden="true" />
-                  </span>
+                  </span> */}
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link white" to="/profile">Rune Celik</Link>
