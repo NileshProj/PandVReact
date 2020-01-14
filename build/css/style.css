@@ -152,6 +152,9 @@ body {
   .m-t-10 {
     margin-top: 10px;
   }
+  .m-b-10 {
+    margin-bottom: 10px;
+  }
   .m-t-20 {
     margin-top: 20px;
   }
@@ -175,7 +178,7 @@ body {
 
   .profile-pic {
     border-radius: 150px;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     margin: 25px;
   }
 
@@ -193,6 +196,9 @@ body {
 
   .m-l-150 {
     margin-left: 150px;
+  }
+  .m-l-30 {
+    margin-left: 30px;
   }
 
   .m-l-10 {
@@ -243,9 +249,15 @@ body {
   .border-left {
     border-left: 1px solid #ffffff;
   }
+  .border-bottom {
+    border-bottom: 1px solid #ffffff;
+  }
 
   .white {
     color: #fff!important;
+  }
+  .black {
+    color: #000!important;
   }
 
   .bg-brown {
@@ -277,7 +289,7 @@ body {
   }
 
   .tab-name {
-    width: auto;
+    width: 300px;
     border-bottom: 2px solid red !important;
     color: #000;
     text-transform: uppercase;
@@ -301,6 +313,7 @@ body {
 
   .btn-red {
     background-color: rgb(230, 74, 25);
+    border-radius: 0%!important;
   }
   .form-group
   .btn-group {
@@ -519,4 +532,35 @@ body {
         }
         .bold {
           font-weight: 900;
+        }
+        .notification {
+          background-color: #fff;
+          /* border: 1px solid grey; */
+          width: 300px;
+          height: auto;
+          position: fixed;
+          right: 30px;
+          top: 10%;
+          z-index: 1031;
+        }
+        .count {
+          color: #fff;
+          background: red;
+          border-radius: 15px;
+          margin: 2px;
+          font-size: 11px;
+          position: relative;
+          top: -25px;
+          width: 18px;
+          left: 8px;
+        }
+
+        .message {
+          padding: 15px;
+        /* background: lightgray; */
+          margin: 1px;
+        }
+        .img-icon {
+          height: 20px;
+          margin-right: 10px;
         }

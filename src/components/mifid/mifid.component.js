@@ -159,15 +159,15 @@ class MIFID extends React.Component {
                                                     
                                                 </div>
                                                 <div className={this.state.active === 4 ? '': 'hide'}>
-                                                    <div><strong>1)</strong> <span className={this.state.a4 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:1})}>Below 20 Millian EUR</span></div>
-                                                    <div><strong>2)</strong> <span className={this.state.a4 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:2})}>Between EUR 20 and 70 Millian</span></div>
-                                                    <div><strong>3)</strong> <span className={this.state.a4 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:3})}>Over EUR 70 Millian</span></div>
+                                                    <div><strong>1)</strong> <span className={this.state.a4 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:1})}>Below 20 Million EUR</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a4 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:2})}>Between EUR 20 and 70 Million</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a4 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a4:3})}>Over EUR 70 Million</span></div>
                                                     
                                                 </div>
                                                 <div className={this.state.active === 5 ? '': 'hide'}>
-                                                    <div><strong>1)</strong> <span className={this.state.a5 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:1})}>Below 10 Millian EUR</span></div>
-                                                    <div><strong>2)</strong> <span className={this.state.a5 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:2})}>Between 10 to 30 Millian EUR</span></div>
-                                                    <div><strong>3)</strong> <span className={this.state.a5 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:3})}>Above 30 Millian EUR</span></div>
+                                                    <div><strong>1)</strong> <span className={this.state.a5 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:1})}>Below 10 Million EUR</span></div>
+                                                    <div><strong>2)</strong> <span className={this.state.a5 === 2 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:2})}>Between 10 to 30 Million EUR</span></div>
+                                                    <div><strong>3)</strong> <span className={this.state.a5 === 3 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a5:3})}>Above 30 Million EUR</span></div>
                                                 </div>
                                                 <div className={this.state.active === 6 ? '': 'hide'}>
                                                     <div><strong>1)</strong> <span className={this.state.a6 === 1 ? "btn-red white p-l-10 p-r-10": ''} onClick={()=>this.setState({a6:1})}>Should Cover Financial Goal</span></div>
